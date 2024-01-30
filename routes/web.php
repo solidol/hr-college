@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-require_once __DIR__ . '/web_parts/api_helpers.php';
+
 
 Route::get('/', function () {
     return view('start');
