@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('attestations', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->unsignedBigInteger('employee_id');
             $table->unsignedBigInteger('employee_rank_id');
+            $table->text('description')->nullable();
         });
     }
 

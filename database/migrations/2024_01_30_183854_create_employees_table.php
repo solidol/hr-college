@@ -14,10 +14,13 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->unsignedBigInteger('person_id');
-            $table->unsignedBigInteger('position_id');
-            $table->date('date_start')->default('1990-01-01');
-            $table->date('date_end')->default('1990-01-01');
+            $table->unsignedBigInteger('reg_number')->unique();
+            $table->string('firstname',100);
+            $table->string('secondname',100);
+            $table->string('lastname',100);
+            $table->date('birthdate')->default('1900-01-01');
+            $table->text('description')->nullable();
+            $table->unsignedTinyInteger('status')->default(1);
         });
     }
 

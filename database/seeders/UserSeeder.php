@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Faker\Generator;
 use App\Models\User;
-use App\Models\Person;
+use App\Models\EmployeeCard;
 use App\Models\Employee;
+use App\Models\Phone;
 
 
 class UserSeeder extends Seeder
@@ -23,29 +24,35 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        
+
         User::create([
-            'user_name' => 'levitsky',
+            'name' => 'levitsky',
             'email' => 'levitsky.v.n@gmail.com',
             'password' => Hash::make('111111'),
             'userable_id' => 1,
-            'userable_type' => 'App\Models\Person',
+            'userable_type' => 'App\Models\Employee',
             'roles' => 'employee,admin',
             'status' => 1
         ]);
-        
-        Person::create([
+
+        $emp = Employee::create([
+            'reg_number' => 123456,
             'lastname' => 'Левицький',
             'firstname' => 'Віктор',
             'secondname' => 'Миколайович',
             'birthdate' => '1987-10-04'
         ]);
-        
-        Employee::create([
-            'person_id' => 1,
-            'position_id' => 1,
-            
-        ]);
-        
+        $emp->cards()->save(
+            new EmployeeCard([
+                'position_id' => 1,
+            ])
+        );
+        $emp->phones()->save(
+            new Phone([
+                'phone_type' => 1,
+                'phone' => '0997725462',
+            ])
+        );
+
     }
 }

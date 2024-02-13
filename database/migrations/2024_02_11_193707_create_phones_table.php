@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('phones', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->unsignedTinyInteger('phone_type')->default(1);
             $table->string('phone',15);
-            $table->unsignedBigInteger('employee_id');
+            $table->morphs('personable');
+            $table->text('description')->nullable();
         });
     }
 

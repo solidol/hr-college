@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('people', function (Blueprint $table) {
+        Schema::create('employee_cards', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('firstname',100);
-            $table->string('secondname',100);
-            $table->string('lastname',100);
-            $table->date('birthdate')->default('1900-01-01');
-            $table->text('description')->nullable();
+            $table->unsignedBigInteger('employee_id')->default(0);
+            $table->unsignedBigInteger('position_id');
+            $table->date('date_start')->default('1990-01-01');
+            $table->date('date_end')->default('1990-01-01');
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('people');
+        Schema::dropIfExists('employee_cards');
     }
 };
