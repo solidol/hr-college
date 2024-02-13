@@ -15,10 +15,10 @@ return new class extends Migration
             $table->string('number', 100)->default('')->comment('Номер документа');
             $table->string('fullname')->default('')->comment('Власник документу');
             $table->string('title')->default('')->comment('Назва в документі');
-            $table->date('document_date_start')->nullable()->comment('Дата видачі документу');
-            $table->date('document_date_end')->nullable()->comment('Термін дії документу');
+            $table->date('date_start')->nullable()->comment('Дата видачі документу');
+            $table->date('date_end')->nullable()->comment('Термін дії документу');
             $table->string('institution')->comment('Організація, що видала документ');
-            
+            $table->morphs('documentable');
             $table->bigInteger('document_type_id')->unsigned()->comment('Тип документу');
             $table->text('description')->nullable()->comment('Текст в документі');
             

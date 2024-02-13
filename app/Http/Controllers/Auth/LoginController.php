@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use App\Models\Log;
+use App\Models\Event;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -58,11 +58,11 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             if (\request()->ajax()) {
                 $toJson = Auth::user()->getShortObj();
-                Log::apiLogin();
+                Event::apiLogin();
                 $token = $request->user()->createToken('auth-token')->plainTextToken;
                 return response()->json(['token' => $token, 'user' => $toJson]);
             } else {
-                Log::login();
+                Event::login();
                 return redirect()->intended($this->redirectTo);
             }
         }

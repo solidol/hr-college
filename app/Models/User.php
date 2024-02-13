@@ -87,21 +87,9 @@ class User extends Authenticatable
         else return false;
     }
 
-    public static function teachers()
+    public function events()
     {
-        return User::with('userable')->
-        join('prepod', 'prepod.kod_prep', '=', 'users.userable_id')->
-        where('userable_type', 'App\Models\Teacher')->orderBy('prepod.FIO_prep', 'asc')->get();
-    }
-    public static function students()
-    {
-        return User::with('userable')->
-        join('spisok_stud', 'spisok_stud.kod_stud', '=', 'users.userable_id')->
-        where('userable_type', 'App\Models\Student')->orderBy('spisok_stud.FIO_stud', 'asc')->get();
-    }
-    public function logins()
-    {
-        return $this->hasMany(Log::class);
+        return $this->hasMany(Event::class);
     }
     public function lastLogin()
     {
@@ -112,26 +100,4 @@ class User extends Authenticatable
         }
     }
 
-    public function getShortObj(){
-        
-        $toObj = (object)[];
-
-        $toObj->id = $this->id; 
-        $toObj->name = $this->name; 
-        $toObj->email = $this->email; 
-        $toObj->roles = $this->roles; 
-        $toObj->userable = (object)[];
-        $toObj->userable->id = $this->userable->id;
-        $toObj->userable->fullname = $this->userable->fullname;
-        $toObj->userable->shortname = $this->userable->shortname;
-
-        
-        if ($this->isStudent()){
-            $toObj->userable->group = (object)[];
-            $toObj->userable->group->id = $this->userable->group->kod_grup;
-            $toObj->userable->group->title = $this->userable->group->title;
-        }
-
-        return $toObj;
-    }
 }

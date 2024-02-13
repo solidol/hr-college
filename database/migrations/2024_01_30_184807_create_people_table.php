@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('secondname',100);
             $table->string('lastname',100);
             $table->date('birthdate')->default('1900-01-01');
+            $table->text('description')->nullable();
         });
     }
 

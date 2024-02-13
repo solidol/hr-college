@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('stored_files', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('title');
+            $table->string('filename',2000);
+            $table->text('description');
+            $table->unsignedInteger('crc32');
         });
     }
 

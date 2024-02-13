@@ -14,6 +14,12 @@ return new class extends Migration
         Schema::create('publications', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('authors',1000);
+            $table->string('title',1000);
+            $table->unsignedBigInteger('employee_id');
+            $table->date('date_pub')->default('2000-01-01');
+            $table->unsignedTinyInteger('type');
+            $table->text('bibjson');
         });
     }
 

@@ -54,7 +54,7 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('helpers.api.show',['page'=>'v1.0.md']) }}">API Help</a>
+                                <a class="nav-link" href="#">API Help</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
