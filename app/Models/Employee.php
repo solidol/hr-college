@@ -9,8 +9,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Employee extends Model
 {
     use HasFactory;
-    
-    public function cards(){
+
+    public function cards()
+    {
         return $this->hasMany(EmployeeCard::class);
     }
     public function user()
@@ -32,8 +33,18 @@ class Employee extends Model
     }
     public function getShortnameAttribute()
     {
-        $shortname = $this->lastname ." ".mb_substr($this->firstname, 0, 1) . "." . mb_substr($this->secondname, 0, 1) . ".";
+        $shortname = $this->lastname . " " . mb_substr($this->firstname, 0, 1) . "." . mb_substr($this->secondname, 0, 1) . ".";
         return $shortname;
     }
-    
+    public function getGenderStrAttribute()
+    {
+        switch ($this->gender) {
+            case 0:
+                return 'Жіноча';
+            case 1:
+                return 'Чоловіча';
+            default:
+                return 'Невизначена';
+        }
+    }
 }

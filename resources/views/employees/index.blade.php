@@ -24,6 +24,7 @@
                             </th>
                         </tr>
                     </thead>
+                    <tbody>
                     @foreach ($employees as $employee)
                         <tr>
                             <td>
@@ -43,6 +44,8 @@
                             </td>
                         </tr>
                     @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

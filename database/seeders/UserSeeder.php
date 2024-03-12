@@ -44,9 +44,12 @@ class UserSeeder extends Seeder
         ]);
         $emp->cards()->save(
             new EmployeeCard([
-                'position_id' => 1,
+                'position_id' => 50,
+                'position_type' => 1,
+                'volume' => 1,
             ])
         );
+
         $emp->phones()->save(
             new Phone([
                 'phone_type' => 1,
@@ -74,16 +77,30 @@ class UserSeeder extends Seeder
         ]);
         $emp->cards()->save(
             new EmployeeCard([
-                'position_id' => 1,
+                'position_id' => 50,
+                'position_type' => 1,
+                'volume' => 1,
+            ])
+        );
+        $emp->cards()->save(
+            new EmployeeCard([
+                'position_id' => 10,
+                'position_type' => 2,
+                'volume' => 0.5,
             ])
         );
         $emp->phones()->save(
             new Phone([
-                'phone_type' => 1,
+                'phone_type' => 2,
                 'phone' => '+380662458185',
             ])
         );
-
+        $emp->phones()->save(
+            new Phone([
+                'phone_type' => 2,
+                'phone' => '+380982458185',
+            ])
+        );
 
     }
 }

@@ -9,8 +9,33 @@ class Phone extends Model
 {
     use HasFactory;
 
-    public function employee()
+    public function personable()
     {
-        return $this->belongsTo(Employee::class);
+        return $this->morphTo();
+    }
+
+    public function getStatusStrAttribute()
+    {
+        switch ($this->active) {
+            case 0:
+                return 'Архівний';
+            case 1:
+                return 'Діючий';
+            default:
+                return 'Невизначений';
+        }
+    }
+
+    public function getTypeStrAttribute()
+    {
+        switch ($this->phone_type) {
+            case 0:
+                return 'Мобільний';
+            case 1:
+                return 'Стаціонарний';
+            default:
+                return 'Невизначений';
+
+        }
     }
 }

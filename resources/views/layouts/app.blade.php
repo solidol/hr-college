@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
@@ -20,12 +20,29 @@
 
 <body>
     <div id="app">
-        @include('menus.mainmenu')
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+
+        <div class="container-fluid overflow-hidden">
+            <div class="row vh-100 overflow-auto">
+                <div class="col-12 col-lg-3 col-xl-2 px-0 d-flex sticky-top bg-dark text-white">
+                    @include('menus.mainmenu')
+                </div>
+                <div class="col d-flex flex-column h-sm-100">
+
+                    <div class="row overflow-auto">
+                        <div class="col-12">
+                            <main>
+                                @yield('content')
+                            </main>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
+    @include('popups.popup-messages')
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 /* tables */
 
 .table {
-    --bs-table-border-color: #000000;
+    --bs-table-border-color: $blue;
 }
 
 
@@ -96,9 +96,7 @@ th.rotated-text {
 }
 
 
-table td.we-cols {
-    background-color: $cyan !important;
-}
+
 
 th.rotate {
     /* Something you can count on */

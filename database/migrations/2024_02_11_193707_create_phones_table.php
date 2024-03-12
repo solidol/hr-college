@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->unsignedTinyInteger('phone_type')->default(1);
             $table->string('phone',15);
+            $table->smallInteger('has_messenger')->default(0);
             $table->morphs('personable');
             $table->text('description')->nullable();
             $table->tinyInteger('active')->default(1)->comment('1 = active, 0 = archived');
