@@ -18,6 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('position_id');
             $table->date('date_start')->default('1990-01-01');
             $table->date('date_end')->default('1990-01-01');
+            $table->tinyInteger('editable')->default(1);
+            $table->tinyInteger('accepted')->default(0);
+            $table->text('message')->nullable();
         });
     }
 

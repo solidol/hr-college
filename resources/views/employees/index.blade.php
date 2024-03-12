@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <table>
+                <table id="tabemp" class="table table-striped">
                     <thead>
                         <tr>
                             <th>
@@ -39,11 +39,16 @@
                                 {{ $employee->phones[0] ? $employee->phones[0]->phone : '-' }}
                             </td>
                             <td>
-                                <a href="{{ URL::route('admin.employees.show', ['employee' => $employee]) }}">Перегляд</a>
+                                <a href="{{ URL::route('employees.show', ['employee' => $employee]) }}" class="btn btn-success"><i class="bi bi-person-rolodex"></i> Перегляд</a>
                             </td>
                         </tr>
                     @endforeach
             </div>
         </div>
     </div>
+    <script type="module">
+        $(document).ready(function(){
+            $('#tabemp').DataTable();
+        });
+    </script>
 @endsection

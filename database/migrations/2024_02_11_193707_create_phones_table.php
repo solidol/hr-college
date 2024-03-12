@@ -18,6 +18,10 @@ return new class extends Migration
             $table->string('phone',15);
             $table->morphs('personable');
             $table->text('description')->nullable();
+            $table->tinyInteger('active')->default(1)->comment('1 = active, 0 = archived');
+            $table->tinyInteger('editable')->default(1);
+            $table->tinyInteger('accepted')->default(0);
+            $table->text('message')->nullable();
         });
     }
 

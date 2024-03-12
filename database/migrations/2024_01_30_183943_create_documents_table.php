@@ -21,7 +21,11 @@ return new class extends Migration
             $table->morphs('documentable');
             $table->bigInteger('document_type_id')->unsigned()->comment('Тип документу');
             $table->text('description')->nullable()->comment('Текст в документі');
-            
+            $table->tinyInteger('editable')->default(1);
+            $table->tinyInteger('accepted')->default(0);
+            $table->text('message')->nullable();
+
+
             $table->index('document_type_id');
             $table->fullText('number');
         });

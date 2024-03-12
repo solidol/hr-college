@@ -24,7 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name(
 
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => 'roles:admin'], function () {
-        include __DIR__ . "/web_parts/employees_admin.php";
+        include __DIR__ . "/web_parts/employees.php";
     });
 });
 

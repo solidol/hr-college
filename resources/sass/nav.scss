@@ -1,0 +1,38 @@
+/* navbar */
+
+.navbar {
+    padding: 0.2rem;
+}
+
+.nav-item {
+    width: 100%;
+    margin: 0 5px 0 5px;
+//    border-top: 1px solid $grey;
+}
+
+.nav-item a.nav-link {
+    border-radius: 5px;
+}
+
+.nav-link{
+    padding-left: 0;
+    color: $white !important;
+}
+
+
+.nav-item button.nav-link {
+    margin: 5px;
+    border-radius: 5px;
+}
+
+
+
+.navbar-brand img {
+    max-height: 30px;
+}
+
+
+#chart_div {
+    width: 100%;
+    min-height: 450px;
+}

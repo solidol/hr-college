@@ -32,8 +32,16 @@ class EmployeeController extends Controller
     }
     public function update(Request $request, Employee $employee)
     {
-        $data = $request->all();
-        $employee->update($data);
+        $employee->reg_number = $request->reg_number??$employee->reg_number;
+        $employee->firstname = $request->firstname??$employee->firstanme;
+        $employee->secondname = $request->secondname??$employee->secondname;
+        $employee->lastname = $request->lastname??$employee->lastname;
+        $employee->birthdate = $request->birthdate??$employee->birthdate;
+        $employee->gender = $request->gender??$employee->gender;
+        $employee->citizenship = $request->citizenship??$employee->citizenship;
+        $employee->languages = $request->languages??$employee->languages;
+        $employee->description = $request->description??$employee->description;
+        $employee->save();
         return redirect()->route('employees.edit', ['employee' => $employee]);
     }
     public function inactivate(Employee $employee)

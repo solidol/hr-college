@@ -16,13 +16,16 @@ return new class extends Migration
             $table->timestamps();
             $table->string('title');
             $table->string('thesis',2000)->nullable();
-            $table->text('description')->nullable();
             $table->date('date_start')->nullable()->comment('Дата початку стажування');
             $table->date('date_end')->nullable()->comment('Дата закінчення стажування');
             $table->decimal('hours',8,2,true);
             $table->unsignedBigInteger('employee_id');
             $table->unsignedBigInteger('institution_id');
             $table->unsignedBigInteger('internship_type_id');
+            $table->text('description')->nullable();
+            $table->tinyInteger('editable')->default(1);
+            $table->tinyInteger('accepted')->default(0);
+            $table->text('message')->nullable();
         });
     }
 

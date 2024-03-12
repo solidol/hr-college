@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('attestations', function (Blueprint $table) {
+        Schema::create('education', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('title');
+            $table->date('date_start')->nullable()->comment('Дата початку навчання');
+            $table->date('date_end')->nullable()->comment('Дата закінчення навчання');
             $table->unsignedBigInteger('employee_id');
-            $table->unsignedBigInteger('employee_rank_id');
+            $table->unsignedBigInteger('institution_id');
+            $table->unsignedBigInteger('education_level_id');
             $table->text('description')->nullable();
-            $table->tinyInteger('editable')->default(1);
-            $table->tinyInteger('accepted')->default(0);
-            $table->text('message')->nullable();
+            
         });
     }
 
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('attestations');
+        Schema::dropIfExists('education');
     }
 };

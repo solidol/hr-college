@@ -54,6 +54,16 @@ class User extends Authenticatable
         return $this->hasRole('admin');
     }
 
+    public function isHR()
+    {
+        return $this->hasRole('hr');
+    }
+
+    public function isBoss()
+    {
+        return $this->hasRole('boss');
+    }
+
     public function isEmployee()
     {
         return $this->hasRole('employee');

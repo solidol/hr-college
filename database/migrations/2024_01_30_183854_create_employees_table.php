@@ -19,8 +19,14 @@ return new class extends Migration
             $table->string('secondname',100);
             $table->string('lastname',100);
             $table->date('birthdate')->default('1900-01-01');
+            $table->tinyInteger('gender')->nullable()->default(1)->comment('1 = male, 0 = female');
+            $table->string('languages')->default('');
+            $table->string('citizenship', 25)->default('Україна');
             $table->text('description')->nullable();
-            $table->unsignedTinyInteger('status')->default(1);
+            $table->tinyInteger('active')->default(1)->comment('1 = active, 0 = archived');
+            $table->tinyInteger('editable')->default(1);
+            $table->tinyInteger('accepted')->default(0);
+            $table->text('message')->nullable();
         });
     }
 

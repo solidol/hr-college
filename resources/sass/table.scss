@@ -1,0 +1,156 @@
+/* tables */
+
+.table {
+    --bs-table-border-color: #000000;
+}
+
+
+.table th {
+    background-color: $dark;
+    color: #fff;
+}
+
+tr.group,
+tr.group:hover {
+    background-color: rgb(232, 236, 255) !important;
+    color: #000;
+    font-weight: 700;
+}
+
+.th-150-truncate {
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.th-30-truncate {
+    max-width: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.div-table {
+    max-width: 100%;
+    overflow-y: scroll;
+}
+
+table {
+    margin: 1rem 0 1rem 0;
+    width: 100%;
+}
+
+
+
+.table-table tr {
+    max-height: 20px;
+}
+
+table th.subj-name,
+table td.subj-name {
+    min-width: 10rem;
+    white-space: nowrap;
+    /* Отменяем перенос текста */
+    overflow: hidden;
+    /* Обрезаем содержимое */
+    text-overflow: ellipsis;
+    /* Многоточие */
+}
+
+.table-table,
+.table-table td {
+    font-size: 1rem;
+    padding: 0 !important;
+}
+
+.table-table td.hr-cnt {
+    text-align: center;
+    vertical-align: center;
+}
+
+
+.table thead,
+.table tfoot {
+    color: $white !important;
+    background-color: $primary !important;
+}
+
+.table th {
+    vertical-align: middle !important;
+    text-align: center !important;
+    border: 1px solid $white !important;
+    font-size: 1rem;
+    font-weight: 600 !important;
+    padding: 0 !important;
+}
+
+th.rotated-text {
+    height: 140px;
+    white-space: nowrap;
+    padding: 0 !important;
+
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+
+table td.we-cols {
+    background-color: $cyan !important;
+}
+
+th.rotate {
+    /* Something you can count on */
+    height: 220px;
+    position: relative;
+}
+
+th.rotate>div {
+    bottom: 5px;
+    left: 50%;
+    position: absolute;
+    transform: rotate(-90deg);
+    transform-origin: center left;
+    white-space: nowrap;
+    width: 190px;
+    white-space: normal;
+    font-size: 90%;
+}
+
+th.number {
+    min-width: 2rem;
+}
+
+table.table-study-plan th.code-name {
+    min-width: 6rem;
+}
+
+table.table-study-plan td {
+    padding: 0 0.2rem 0 0.2rem;
+}
+
+table p {
+    margin: 0;
+}
+
+th.mw-10-rem {
+    min-width: 10rem;
+}
+
+.dataTable {
+    width: 100% !important;
+}
+
+td .btn {
+    margin: 0 0.2rem 0 0.2rem;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+
+
+  table {
+    border-collapse: collapse;        
+    width: 100%;
+  }

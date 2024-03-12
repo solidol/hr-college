@@ -50,9 +50,40 @@ class UserSeeder extends Seeder
         $emp->phones()->save(
             new Phone([
                 'phone_type' => 1,
-                'phone' => '0997725462',
+                'phone' => '+380997725462',
             ])
         );
+
+
+        User::create([
+            'name' => 'safonov',
+            'email' => 'nemko85@gmail.com',
+            'password' => Hash::make('111111'),
+            'userable_id' => 2,
+            'userable_type' => 'App\Models\Employee',
+            'roles' => 'employee',
+            'status' => 1
+        ]);
+
+        $emp = Employee::create([
+            'reg_number' => 123457,
+            'lastname' => 'Сафонов',
+            'firstname' => 'Михайло',
+            'secondname' => 'Сергійович',
+            'birthdate' => '1985-01-01'
+        ]);
+        $emp->cards()->save(
+            new EmployeeCard([
+                'position_id' => 1,
+            ])
+        );
+        $emp->phones()->save(
+            new Phone([
+                'phone_type' => 1,
+                'phone' => '+380662458185',
+            ])
+        );
+
 
     }
 }
