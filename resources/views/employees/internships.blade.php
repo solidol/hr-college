@@ -2,22 +2,23 @@
 
 @section('content')
     <div class="container">
+        <h1>Стажування працівника {{$employee->fullname}}</h1>
         <div class="row">
             <div class="col-md-12">
                 <table id="tabemp" class="table table-striped">
                     <thead>
                         <tr>
                             <th>
-                                Телефон
+                                Організація
                             </th>
                             <th>
-                                Тип
+                                Тема
                             </th>
                             <th>
-                                ПІБ
+                                Дата закінчення
                             </th>
                             <th>
-                                Статус
+                                Години / кредити
                             </th>
                             <th>
 
@@ -25,22 +26,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($phones as $phone)
+                        @foreach ($employee->internships as $internship)
                             <tr>
                                 <td>
-                                    {{ $phone->phone }}
+                                    {{ $internship->institution }}
                                 </td>
                                 <td>
-                                    {{ $phone->type_str }}
+                                    {{ $internship->thesis }}
                                 </td>
                                 <td>
-                                    {{ $phone->personable->fullname }}
+                                    {{ $internship->date_end->format('d.m.Y') }}
                                 </td>
                                 <td>
-                                    {{ $phone->status_str }}
+                                    {{ $internship->hours }} / {{ $internship->hours/30 }}
                                 </td>
                                 <td>
-
+                                    <a href="{{ URL::route('internships.show', ['internship' => $internship]) }}"
+                                        class="btn btn-success"><i class="bi bi-person-rolodex"></i> Перегляд</a>
                                 </td>
                             </tr>
                         @endforeach

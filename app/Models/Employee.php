@@ -9,7 +9,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Employee extends Model
 {
     use HasFactory;
-
+    protected $casts = [
+        'birthdate' => 'datetime:d.m.Y',
+    ];
+    public function internships()
+    {
+        return $this->hasMany(Internship::class);
+    }
     public function cards()
     {
         return $this->hasMany(EmployeeCard::class);

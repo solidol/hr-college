@@ -24,9 +24,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name(
 
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => 'roles:admin'], function () {
-        include __DIR__ . "/web_parts/employees.php";
-        include __DIR__ . "/web_parts/phones.php";
+        include __DIR__ . "/web_parts/users.php";
     });
+    include __DIR__ . "/web_parts/employees.php";
+    include __DIR__ . "/web_parts/phones.php";
+    include __DIR__ . "/web_parts/internships.php";
 });
 
 

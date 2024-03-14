@@ -4,7 +4,7 @@
         <img src="/logo.png" class="mx-auto" style="width:60%;">
     </div>
     <div class="d-flex align-items-center pb-sm-3 mb-md-0 me-md-auto m-2">
-        <a href="/" class="text-white text-decoration-none">
+        <a href="/" class="text-white text-decoration-none mx-auto">
             <span class="fs-5">
                 <span class="d-none d-sm-inline">{{ config('app.name', 'Laravel') }}</span>
             </span>
@@ -23,6 +23,12 @@
             @if (Auth::user()->isEmployee())
                 @if (Auth::user()->isAdmin())
                     @include('menus.parts.main_admin')
+                @endif
+                @if (Auth::user()->isHR())
+                    @include('menus.parts.main_humanres')
+                @endif
+                @if (Auth::user()->isBoss())
+                    @include('menus.parts.main_boss')
                 @endif
                 @if (Auth::user()->isEmployee())
                     @include('menus.parts.main_employee')

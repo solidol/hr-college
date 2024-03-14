@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('title');
+            $table->unsignedBigInteger('parent_id')->default(0);
             $table->string('description')->default('');
         });
     }

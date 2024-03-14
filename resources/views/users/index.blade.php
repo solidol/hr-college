@@ -8,16 +8,13 @@
                     <thead>
                         <tr>
                             <th>
-                                Телефон
-                            </th>
-                            <th>
-                                Тип
+                                Логін
                             </th>
                             <th>
                                 ПІБ
                             </th>
                             <th>
-                                Статус
+                                e-mail
                             </th>
                             <th>
 
@@ -25,21 +22,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($phones as $phone)
+                        @foreach ($users as $user)
                             <tr>
                                 <td>
-                                    {{ $phone->phone }}
+                                    {{ $user->name }}
                                 </td>
                                 <td>
-                                    {{ $phone->type_str }}
+                                    {{ $user->userable->fullname }}
                                 </td>
                                 <td>
-                                    {{ $phone->personable->fullname }}
+                                    {{ $user->email }}
                                 </td>
                                 <td>
-                                    {{ $phone->status_str }}
-                                </td>
-                                <td>
+                                    <a href="{{ URL::route('users.show', ['user' => $user]) }}" class="btn btn-success"><i
+                                            class="bi bi-person-rolodex"></i> Перегляд</a>
+                                    <form action="{{ URL::route('users.loginas', ['user' => $user]) }}" method="post">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">Увійти</button>
+                                    </form>
 
                                 </td>
                             </tr>

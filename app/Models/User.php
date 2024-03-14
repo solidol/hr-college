@@ -43,7 +43,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public static $avRoles = [
+        'employee' => 'Співробітник',
+        'admin' => 'Адміністратор',
+        'humanres' => 'Відділ кадрів',
+        'boss' => 'Дирекція',
 
+        'student' => 'Студент',
+    ];
     public function userable()
     {
         return $this->morphTo();
@@ -89,5 +96,17 @@ class User extends Authenticatable
             return false;
         }
     }
+    public function getRolesArAttribute()
+    {
+        return explode(',', $this->roles);
+    }
 
+    public function getRolesArStrAttribute()
+    {
+        $result = [];
+        foreach ($this->roles_ar as $rItem) {
+            $result[] = static::$avRoles[$rItem];
+        }
+        return $result;
+    }
 }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('date_end')->nullable()->comment('Термін дії документу');
             $table->string('institution')->comment('Організація, що видала документ');
             $table->morphs('documentable');
+            $table->nullableMorphs('alt_documentable');
             $table->bigInteger('document_type_id')->unsigned()->comment('Тип документу');
             $table->text('description')->nullable()->comment('Текст в документі');
             $table->tinyInteger('editable')->default(1);
