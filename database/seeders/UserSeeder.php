@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Faker\Generator;
 use App\Models\User;
-use App\Models\EmployeeCard;
+use App\Models\PositionCard;
 use App\Models\Employee;
 use App\Models\Phone;
 
@@ -43,7 +43,7 @@ class UserSeeder extends Seeder
             'birthdate' => '1987-10-04'
         ]);
         $emp->cards()->save(
-            new EmployeeCard([
+            new PositionCard([
                 'position_id' => 50,
                 'position_type' => 1,
                 'volume' => 1,
@@ -76,14 +76,14 @@ class UserSeeder extends Seeder
             'birthdate' => '1985-01-01'
         ]);
         $emp->cards()->save(
-            new EmployeeCard([
+            new PositionCard([
                 'position_id' => 50,
                 'position_type' => 1,
                 'volume' => 1,
             ])
         );
         $emp->cards()->save(
-            new EmployeeCard([
+            new PositionCard([
                 'position_id' => 10,
                 'position_type' => 2,
                 'volume' => 0.5,
@@ -121,14 +121,14 @@ class UserSeeder extends Seeder
             'birthdate' => '1985-01-01'
         ]);
         $emp->cards()->save(
-            new EmployeeCard([
+            new PositionCard([
                 'position_id' => 50,
                 'position_type' => 1,
                 'volume' => 1,
             ])
         );
         $emp->cards()->save(
-            new EmployeeCard([
+            new PositionCard([
                 'position_id' => 10,
                 'position_type' => 2,
                 'volume' => 0.5,
@@ -166,7 +166,7 @@ class UserSeeder extends Seeder
             'birthdate' => '1987-10-04'
         ]);
         $emp->cards()->save(
-            new EmployeeCard([
+            new PositionCard([
                 'position_id' => 1,
                 'position_type' => 1,
                 'volume' => 1,

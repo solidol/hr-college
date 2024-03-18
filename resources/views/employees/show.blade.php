@@ -4,6 +4,19 @@
     <div class="container">
         <h1>Картка працівника</h1>
         <div class="row">
+            <div class="col">
+                <a href="{{ URL::route('employees.show.internships', ['employee' => $employee]) }}" class="btn btn-success">
+                    Підвищення кваліфікації
+                </a>
+                <a href="{{ URL::route('employees.show.internships', ['employee' => $employee]) }}" class="btn btn-success">
+                    Атестації
+                </a>
+                <a href="{{ URL::route('employees.show.internships', ['employee' => $employee]) }}" class="btn btn-success">
+                    Документи про освіту
+                </a>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-6">
                 <h2>Загальна інформація</h2>
                 <div class="form-group row">
@@ -38,7 +51,7 @@
                     <label for="birthdate" class="col-4 col-form-label">Дата народження</label>
                     <div class="col-8">
                         <input id="birthdate" name="birthdate" type="date" class="form-control"
-                            value="{{ $employee->birthdate }}" readonly="readonly">
+                            value="{{ $employee->birthdate->format('Y-m-d') }}" readonly="readonly">
                     </div>
                 </div>
                 <div class="form-group row">

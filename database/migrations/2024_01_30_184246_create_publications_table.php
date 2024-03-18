@@ -20,6 +20,8 @@ return new class extends Migration
             $table->date('date_pub')->default('2000-01-01');
             $table->unsignedTinyInteger('type');
             $table->text('bibjson');
+            $table->tinyInteger('active')->default(1)->comment('1 = active, 0 = archived');
+            $table->tinyInteger('status')->default(1)->comment('0 = accepted, 1 = editable, 2 = on review, 3 = accepted');
             $table->text('description')->nullable();
         });
     }

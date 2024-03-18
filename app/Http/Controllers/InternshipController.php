@@ -19,22 +19,34 @@ class InternshipController extends Controller
     }
     public function edit(Internship $internship)
     {
-        return view('internships.edit', ['internship' => $internship]);
+        $ittp = InternshipType::all();
+        return view('internships.edit', ['internship' => $internship, 'internshipTypes' => $ittp]);
     }
-    public function create()
+    public function create(Employee $employee)
     {
         $ittp = InternshipType::all();
-        return view('internships.create', ['itTypes' => $ittp]);
+        return view('internships.create', ['internshipTypes' => $ittp, 'employee' => $employee]);
     }
-    public function store(Request $request)
+    public function store(Request $request, Employee $employee)
     {
         $internship = new Internship();
-
+        $internship->thesis = $request->thesis;
+        $internship->institution = $request->institution;
+        $internship->department = $request->department;
+        $internship->date_start = $request->date_start;
+        $internship->date_end = $request->date_end;
+        $internship->hours = $request->hours;
+        $internship->thesis = $request->thesis;
+        $internship->status = 1;
+        $internship->description = $request->description;
+        $internship->employee_id = $employee->id;
+        $internship->internship_type_id = $request->internship_type;
+        $internship->save();
         return redirect()->route('internships.edit', ['internship' => $internship]);
     }
     public function update(Request $request, Internship $internship)
     {
-      
+
         return redirect()->route('internships.edit', ['internship' => $internship]);
     }
 }

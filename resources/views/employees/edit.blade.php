@@ -41,7 +41,7 @@
                         <label for="birthdate" class="col-4 col-form-label">Дата народження</label>
                         <div class="col-8">
                             <input id="birthdate" name="birthdate" type="date" class="form-control"
-                                value="{{ $employee->birthdate }}" required="required">
+                                value="{{ $employee->birthdate->format('Y-m-d') }}" required="required">
                         </div>
                     </div>
                     <div class="form-group row">

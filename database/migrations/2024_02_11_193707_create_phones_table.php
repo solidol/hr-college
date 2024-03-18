@@ -20,8 +20,7 @@ return new class extends Migration
             $table->morphs('personable');
             $table->text('description')->nullable();
             $table->tinyInteger('active')->default(1)->comment('1 = active, 0 = archived');
-            $table->tinyInteger('editable')->default(1);
-            $table->tinyInteger('accepted')->default(0);
+            $table->tinyInteger('status')->default(1)->comment('0 = accepted, 1 = editable, 2 = on review, 3 = accepted');
             $table->text('message')->nullable();
         });
     }

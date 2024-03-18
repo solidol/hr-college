@@ -14,11 +14,11 @@ class Employee extends Model
     ];
     public function internships()
     {
-        return $this->hasMany(Internship::class);
+        return $this->hasMany(Internship::class)->orderBy('date_end', 'DESC');
     }
     public function cards()
     {
-        return $this->hasMany(EmployeeCard::class);
+        return $this->hasMany(PositionCard::class);
     }
     public function user()
     {

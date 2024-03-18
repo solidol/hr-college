@@ -2,23 +2,33 @@
 
 @section('content')
     <div class="container">
-        <h1>Стажування працівника {{$employee->fullname}}</h1>
+        <h1>Підвищення кваліфікації працівника {{ $employee->fullname }}</h1>
+        <div class="row">
+            <div class="col">
+                <a href="{{ URL::route('internships.create', ['employee' => $employee]) }}" class="btn btn-success">
+                    Додати нове
+                </a>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <table id="tabemp" class="table table-striped">
                     <thead>
                         <tr>
                             <th>
-                                Організація
+                                Організація та тема
                             </th>
                             <th>
-                                Тема
+                                Вид підвищення кваліфікації
                             </th>
                             <th>
                                 Дата закінчення
                             </th>
                             <th>
-                                Години / кредити
+                                Години
+                            </th>
+                            <th>
+                                Кредити
                             </th>
                             <th>
 
@@ -29,20 +39,33 @@
                         @foreach ($employee->internships as $internship)
                             <tr>
                                 <td>
-                                    {{ $internship->institution }}
+                                    <div>
+                                        {{ $internship->institution }}
+                                    </div>
+                                    <hr>
+                                    <div>
+                                        {{ $internship->thesis }}
+                                    </div>
                                 </td>
                                 <td>
-                                    {{ $internship->thesis }}
+                                    {{ $internship->type->title }}
                                 </td>
                                 <td>
                                     {{ $internship->date_end->format('d.m.Y') }}
                                 </td>
                                 <td>
-                                    {{ $internship->hours }} / {{ $internship->hours/30 }}
+                                    {{ $internship->hours }}
+                                </td>
+                                <td>
+                                    {{ $internship->hours / 30 }}
                                 </td>
                                 <td>
                                     <a href="{{ URL::route('internships.show', ['internship' => $internship]) }}"
                                         class="btn btn-success"><i class="bi bi-person-rolodex"></i> Перегляд</a>
+                                    @if ($internship->status == 1)
+                                        <a href="{{ URL::route('internships.edit', ['internship' => $internship]) }}"
+                                            class="btn btn-danger"><i class="bi bi-person-rolodex"></i> Редагувати</a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
@@ -57,6 +80,7 @@
                 buttons: [],
                 lengthMenu: [50, 100, 500],
                 language: languageUk,
+                ordering: false,
             });
         });
     </script>

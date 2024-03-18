@@ -17,8 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('employee_id');
             $table->unsignedBigInteger('employee_rank_id');
             $table->text('description')->nullable();
-            $table->tinyInteger('editable')->default(1);
-            $table->tinyInteger('accepted')->default(0);
+            $table->tinyInteger('active')->default(1)->comment('1 = active, 0 = archived');
+            $table->tinyInteger('status')->default(1)->comment('0 = accepted, 1 = editable, 2 = on review, 3 = accepted');
             $table->text('message')->nullable();
         });
     }
