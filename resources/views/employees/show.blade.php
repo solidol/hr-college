@@ -92,7 +92,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                @include('employees.parts.cards')
+                @include('employees.parts.positions')
             </div>
         </div>
 

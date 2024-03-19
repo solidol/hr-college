@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Faker\Generator;
 use App\Models\Position;
+use App\Models\PositionRank;
 
 
 class PositionSeeder extends Seeder
@@ -21,6 +22,32 @@ class PositionSeeder extends Seeder
      */
     public function run()
     {
+
+        PositionRank::create([
+            'ped_rank' => 'Спеціаліст без категорії',
+            'ped_tile' => ''
+        ]);
+        PositionRank::create([
+            'ped_rank' => 'Відповідає займаній посаді',
+            'ped_tile' => ''
+        ]);
+        PositionRank::create([
+            'ped_rank' => 'Спеціаліст другої категорії',
+            'ped_tile' => ''
+        ]);
+        PositionRank::create([
+            'ped_rank' => 'Спеціаліст першої категорії',
+            'ped_tile' => ''
+        ]);
+        PositionRank::create([
+            'ped_rank' => 'Спеціаліст вищої категорії',
+            'ped_tile' => ''
+        ]);
+        PositionRank::create([
+            'ped_rank' => 'Спеціаліст вищої категорії',
+            'ped_tile' => 'Викладач-методист'
+        ]);
+
         Position::insert([
             ['title' => 'Директор'],
             ['title' => 'Заступник директора з навчальної роботи'],

@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('employee_ranks', function (Blueprint $table) {
+        Schema::create('position_ranks', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('title');
-            $table->text('description')->nullable();
+            $table->tinyInteger('ped_rank')->default(0)->comment('0 - немає, 1 - викладач-методист');
+            $table->tinyInteger('ped_title')->default(0)->comment('0 - немає, 1 - викладач-методист');
         });
     }
 
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('employee_ranks');
+        Schema::dropIfExists('position_ranks');
     }
 };
