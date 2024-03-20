@@ -10,7 +10,7 @@
                     <label for="lastname" class="col-4 col-form-label">Власник</label>
                     <div class="col-8">
                         <input id="lastname" name="lastname" type="text" class="form-control"
-                            value="{{ $internship->employee->fullname }}" readonly="readonly">
+                            value="{{ $internship->positioncard->employee->fullname }}" readonly="readonly">
                     </div>
                 </div>
                 <div class="form-group row">

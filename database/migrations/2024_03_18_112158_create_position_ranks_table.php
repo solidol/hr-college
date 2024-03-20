@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('position_ranks', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->tinyInteger('ped_rank')->default(0)->comment('0 - немає, 1 - викладач-методист');
-            $table->tinyInteger('ped_title')->default(0)->comment('0 - немає, 1 - викладач-методист');
+            $table->string('ped_rank')->nullable();
+            $table->string('ped_title')->nullable();
         });
     }
 

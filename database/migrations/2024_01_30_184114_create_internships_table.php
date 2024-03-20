@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('date_end')->nullable()->comment('Дата закінчення стажування');
             $table->decimal('hours',8,2,true);
             $table->text('description')->nullable();
-            $table->unsignedBigInteger('employee_id');
+            $table->unsignedBigInteger('position_card_id');
             //$table->unsignedBigInteger('document_id')->default(0);
             $table->unsignedBigInteger('internship_type_id');
             $table->tinyInteger('active')->default(1)->comment('1 = active, 0 = archived');

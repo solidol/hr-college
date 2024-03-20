@@ -2,15 +2,16 @@
 use App\Models\Internship;
 use App\Http\Controllers\InternshipController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\PositionCardController;
 
-Route::get('/employees/{employee}/internships', [EmployeeController::class, 'itnternships'])->
-    name('employees.show.internships')->middleware('can:show,employee');
+Route::get('/positioncards/{positioncard}/internships', [PositionCardController::class, 'itnternships'])->
+    name('positioncards.show.internships');//->middleware('can:show,employee');
 
 
 Route::get('/internships', [InternshipController::class, 'index'])->
     name('internships.index')->middleware('can:index,'.Internship::class);
 
-Route::get('/employees/{employee}/internships/create', [InternshipController::class, 'create'])->
+Route::get('/employees/{positioncard}/internships/create', [InternshipController::class, 'create'])->
     name('internships.create')->middleware('can:createInternship,employee');
 
 Route::get('/internships/{internship}', [InternshipController::class, 'show'])->

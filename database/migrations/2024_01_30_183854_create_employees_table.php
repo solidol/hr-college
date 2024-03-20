@@ -22,6 +22,7 @@ return new class extends Migration
             $table->tinyInteger('gender')->nullable()->default(1)->comment('1 = male, 0 = female');
             $table->string('languages')->default('');
             $table->string('citizenship', 25)->default('Україна');
+            $table->unsignedSmallInteger('employee_grade')->default(0);
             $table->unsignedSmallInteger('ped_experience')->default(0);
             $table->unsignedSmallInteger('all_experience')->default(0);
             $table->text('description')->nullable();

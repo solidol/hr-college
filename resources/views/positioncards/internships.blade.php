@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="container">
-        <h1>Підвищення кваліфікації працівника {{ $employee->fullname }}</h1>
+        <h1>Підвищення кваліфікації працівника {{ $positioncard->employee->fullname }}</h1>
         <div class="row">
             <div class="col">
-                <a href="{{ URL::route('internships.create', ['employee' => $employee]) }}" class="btn btn-success">
+                <a href="{{ URL::route('internships.create', ['positioncard' => $positioncard]) }}" class="btn btn-success">
                     Додати нове
                 </a>
             </div>
@@ -36,7 +36,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($employee->internships as $internship)
+                        @foreach ($positioncard->internships as $internship)
                             <tr>
                                 <td>
                                     <div>

@@ -18,10 +18,7 @@ class EmployeeController extends Controller
     {
         return view('employees.show', ['employee' => $employee]);
     }
-    public function itnternships(Employee $employee)
-    {
-        return view('employees.internships', ['employee' => $employee]);
-    }
+
     public function edit(Employee $employee)
     {
         return view('employees.edit', ['employee' => $employee]);

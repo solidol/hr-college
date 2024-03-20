@@ -17,7 +17,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($employee->positions as $card)
+        @foreach ($employee->positioncards as $card)
             <tr>
                 <td>
                     {{ $card->position->title }}
@@ -28,9 +28,9 @@
                 <td>
                     {{ $card->type_str }}
                 </td>
-
                 <td>
-                   
+                    <a href="{{ URL::route('positioncards.show', ['positioncard' => $card]) }}"
+                        class="btn btn-success">Переглянути</a>
                 </td>
             </tr>
         @endforeach

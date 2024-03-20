@@ -25,27 +25,27 @@ class PositionSeeder extends Seeder
 
         PositionRank::create([
             'ped_rank' => 'Спеціаліст без категорії',
-            'ped_tile' => ''
+            'ped_title' => ''
         ]);
         PositionRank::create([
             'ped_rank' => 'Відповідає займаній посаді',
-            'ped_tile' => ''
+            'ped_title' => ''
         ]);
         PositionRank::create([
             'ped_rank' => 'Спеціаліст другої категорії',
-            'ped_tile' => ''
+            'ped_title' => ''
         ]);
         PositionRank::create([
             'ped_rank' => 'Спеціаліст першої категорії',
-            'ped_tile' => ''
+            'ped_title' => ''
         ]);
         PositionRank::create([
             'ped_rank' => 'Спеціаліст вищої категорії',
-            'ped_tile' => ''
+            'ped_title' => ''
         ]);
         PositionRank::create([
             'ped_rank' => 'Спеціаліст вищої категорії',
-            'ped_tile' => 'Викладач-методист'
+            'ped_title' => 'Викладач-методист'
         ]);
 
         Position::insert([

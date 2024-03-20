@@ -26,6 +26,14 @@ class EmployeeSeeder extends Seeder
     public function run()
     {
 
+        Employee::create([
+            'reg_number' => 0,
+            'lastname' => 'Admin',
+            'firstname' => 'Admin',
+            'secondname' => 'Admin',
+            'birthdate' => '1987-10-04'
+        ]);
+/*
         $emp = Employee::create([
             'reg_number' => 123456,
             'lastname' => 'Левицький',
@@ -40,17 +48,16 @@ class EmployeeSeeder extends Seeder
             'volume' => 1,
         ]);
 
-        $card->ranks()->save(
+
+        $emp->positionCards()->save(
+            $card
+        );
+        $card->establishedRanks()->save(
             new EstablishedRank([
-                'position_card_id' => 1,
-                'position_rank_id' => 2,
+                'position_rank_id' => 4,
                 'established_date' => '2000-01-01',
             ])
         );
-        $emp->cards()->save(
-
-        );
-
 
         $emp->phones()->save(
             new Phone([
@@ -68,14 +75,14 @@ class EmployeeSeeder extends Seeder
             'secondname' => 'Сергійович',
             'birthdate' => '1985-01-01'
         ]);
-        $emp->cards()->save(
+        $emp->positionCards()->save(
             new PositionCard([
                 'position_id' => 50,
                 'position_type' => 1,
                 'volume' => 1,
             ])
         );
-        $emp->cards()->save(
+        $emp->positionCards()->save(
             new PositionCard([
                 'position_id' => 10,
                 'position_type' => 2,
@@ -104,14 +111,14 @@ class EmployeeSeeder extends Seeder
             'secondname' => 'Тестович',
             'birthdate' => '1985-01-01'
         ]);
-        $emp->cards()->save(
+        $emp->positionCards()->save(
             new PositionCard([
                 'position_id' => 50,
                 'position_type' => 1,
                 'volume' => 1,
             ])
         );
-        $emp->cards()->save(
+        $emp->positionCards()->save(
             new PositionCard([
                 'position_id' => 10,
                 'position_type' => 2,
@@ -139,7 +146,7 @@ class EmployeeSeeder extends Seeder
             'secondname' => 'Євгенович',
             'birthdate' => '1987-10-04'
         ]);
-        $emp->cards()->save(
+        $emp->positionCards()->save(
             new PositionCard([
                 'position_id' => 1,
                 'position_type' => 1,
@@ -154,6 +161,6 @@ class EmployeeSeeder extends Seeder
             ])
         );
 
-
+*/
     }
 }

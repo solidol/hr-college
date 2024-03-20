@@ -12,11 +12,9 @@ class Employee extends Model
     protected $casts = [
         'birthdate' => 'datetime:d.m.Y',
     ];
-    public function internships()
-    {
-        return $this->hasMany(Internship::class)->orderBy('date_end', 'DESC');
-    }
-    public function positions()
+    protected $guarded = [];
+
+    public function positioncards()
     {
         return $this->hasMany(PositionCard::class);
     }

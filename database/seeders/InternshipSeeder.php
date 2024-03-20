@@ -43,6 +43,7 @@ class InternshipSeeder extends Seeder
         ]);
 
 
+        
 
         Internship::create([
             'thesis' => 'Тестове стажування перше',
@@ -51,7 +52,7 @@ class InternshipSeeder extends Seeder
             'date_start' => '2022-02-24',
             'date_end' => '2022-03-01',
             'hours' => 12,
-            'employee_id' => 1,
+            'position_card_id' => 1,
             'internship_type_id' => 1,
         ]);
         Internship::create([
@@ -61,7 +62,7 @@ class InternshipSeeder extends Seeder
             'date_start' => '2023-02-24',
             'date_end' => '2023-03-01',
             'hours' => 12,
-            'employee_id' => 1,
+            'position_card_id' => 1,
             'internship_type_id' => 1,
         ]);
         Internship::create([
@@ -71,7 +72,7 @@ class InternshipSeeder extends Seeder
             'date_start' => '2024-02-24',
             'date_end' => '2024-03-01',
             'hours' => 12,
-            'employee_id' => 1,
+            'position_card_id' => 1,
             'internship_type_id' => 1,
         ]);
         Internship::create([
@@ -81,7 +82,7 @@ class InternshipSeeder extends Seeder
             'date_start' => '2024-03-24',
             'date_end' => '2024-04-01',
             'hours' => 30,
-            'employee_id' => 1,
+            'position_card_id' => 1,
             'internship_type_id' => 2,
         ]);
 
@@ -92,7 +93,7 @@ class InternshipSeeder extends Seeder
             'date_start' => '2021-03-01',
             'date_end' => '2021-04-01',
             'hours' => 30,
-            'employee_id' => 1,
+            'position_card_id' => 1,
             'internship_type_id' => 2,
         ]);
 
@@ -103,7 +104,7 @@ class InternshipSeeder extends Seeder
             'date_start' => '2024-05-01',
             'date_end' => '2024-05-01',
             'hours' => 6,
-            'employee_id' => 1,
+            'position_card_id' => 1,
             'internship_type_id' => 5,
         ]);
 
@@ -114,7 +115,7 @@ class InternshipSeeder extends Seeder
             'date_start' => '2024-05-01',
             'date_end' => '2024-05-01',
             'hours' => 6,
-            'employee_id' => 1,
+            'position_card_id' => 1,
             'internship_type_id' => 6,
         ]);
 
@@ -132,7 +133,7 @@ class InternshipSeeder extends Seeder
             'date_start' => '2022-02-24',
             'date_end' => '2022-03-01',
             'hours' => 12,
-            'employee_id' => 2,
+            'position_card_id' => 2,
             'internship_type_id' => 1,
             'status' => 0,
         ]);
@@ -143,7 +144,7 @@ class InternshipSeeder extends Seeder
             'date_start' => '2023-02-24',
             'date_end' => '2023-03-01',
             'hours' => 12,
-            'employee_id' => 2,
+            'position_card_id' => 2,
             'internship_type_id' => 1,
             'status' => 0,
         ]);
@@ -154,7 +155,7 @@ class InternshipSeeder extends Seeder
             'date_start' => '2024-02-24',
             'date_end' => '2024-03-01',
             'hours' => 12,
-            'employee_id' => 2,
+            'position_card_id' => 2,
             'internship_type_id' => 1,
         ]);
         Internship::create([
@@ -164,7 +165,7 @@ class InternshipSeeder extends Seeder
             'date_start' => '2024-03-24',
             'date_end' => '2024-04-01',
             'hours' => 30,
-            'employee_id' => 1,
+            'position_card_id' => 1,
             'internship_type_id' => 2,
         ]);
 
@@ -175,7 +176,7 @@ class InternshipSeeder extends Seeder
             'date_start' => '2021-03-01',
             'date_end' => '2021-04-01',
             'hours' => 30,
-            'employee_id' => 2,
+            'position_card_id' => 2,
             'internship_type_id' => 2,
         ]);
 
@@ -186,7 +187,7 @@ class InternshipSeeder extends Seeder
             'date_start' => '2024-05-01',
             'date_end' => '2024-05-01',
             'hours' => 6,
-            'employee_id' => 2,
+            'position_card_id' => 2,
             'internship_type_id' => 5,
             'status' => 0,
         ]);
@@ -198,7 +199,7 @@ class InternshipSeeder extends Seeder
             'date_start' => '2024-05-01',
             'date_end' => '2024-05-01',
             'hours' => 6,
-            'employee_id' => 2,
+            'position_card_id' => 2,
             'internship_type_id' => 6,
         ]);
 

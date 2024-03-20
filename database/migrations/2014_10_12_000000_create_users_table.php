@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->morphs('userable');
+            $table->nullableMorphs('userable');
             $table->tinyInteger('status')->default(1)->comment('1 - active, 0 - disabled');
-            $table->string('roles',100);
+            $table->string('roles',100)->default('employee');
             $table->rememberToken();
             $table->timestamps();
         });

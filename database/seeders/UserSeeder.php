@@ -26,6 +26,17 @@ class UserSeeder extends Seeder
     {
 
         User::create([
+            'name' => 'admin',
+            'email' => 'admin@fakemail.com',
+            'password' => Hash::make('111111'),
+            'userable_id' => 1,
+            'userable_type' => 'App\Models\Employee',
+            'roles' => 'employee,admin',
+            'status' => 1
+        ]);
+
+/*
+        User::create([
             'name' => 'levitsky',
             'email' => 'levitsky.v.n@gmail.com',
             'password' => Hash::make('111111'),
@@ -64,7 +75,7 @@ class UserSeeder extends Seeder
             'roles' => 'employee,boss',
             'status' => 1
         ]);
-
+*/
 
     }
 }

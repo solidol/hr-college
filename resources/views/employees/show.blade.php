@@ -3,19 +3,7 @@
 @section('content')
     <div class="container">
         <h1>Картка працівника</h1>
-        <div class="row">
-            <div class="col">
-                <a href="{{ URL::route('employees.show.internships', ['employee' => $employee]) }}" class="btn btn-success">
-                    Підвищення кваліфікації
-                </a>
-                <a href="{{ URL::route('employees.show.internships', ['employee' => $employee]) }}" class="btn btn-success">
-                    Атестації
-                </a>
-                <a href="{{ URL::route('employees.show.internships', ['employee' => $employee]) }}" class="btn btn-success">
-                    Документи про освіту
-                </a>
-            </div>
-        </div>
+
         <div class="row">
             <div class="col-6">
                 <h2>Загальна інформація</h2>
