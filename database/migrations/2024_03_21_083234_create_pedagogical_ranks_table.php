@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('education_levels', function (Blueprint $table) {
+        Schema::create('pedagogical_ranks', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->unsignedBigInteger('created_by')->default(1);
             $table->unsignedBigInteger('updated_by')->default(1);
-            $table->string('title')->nullable();
-            $table->string('type')->nullable();
-            $table->text('description')->nullable();
+            $table->string('title');
         });
     }
 
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('education_levels');
+        Schema::dropIfExists('pedagogical_ranks');
     }
 };

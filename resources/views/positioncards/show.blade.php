@@ -57,7 +57,7 @@
                     <label for="lastname" class="col-4 col-form-label">Категорія</label>
                     <div class="col-8">
                         <input id="lastname" name="lastname" type="text" class="form-control"
-                            value="{{ $positioncard->attestations()->latest()->first()->positionRank->ped_rank }}"
+                            value="{{ $positioncard->attestations()->latest()->first()->positionRank->title }}"
                             readonly="readonly">
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                     <label for="lastname" class="col-4 col-form-label">Педагогічне звання</label>
                     <div class="col-8">
                         <input id="lastname" name="lastname" type="text" class="form-control"
-                            value="{{ $positioncard->attestations()->latest()->first()->positionRank->ped_title }}"
+                            value="{{ $positioncard->attestations()->latest()->first()->pedagogicalRank->title }}"
                             readonly="readonly">
                     </div>
                 </div>

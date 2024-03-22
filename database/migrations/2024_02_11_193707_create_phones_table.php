@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('phones', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->unsignedBigInteger('created_by')->default(1);
+            $table->unsignedBigInteger('updated_by')->default(1);
             $table->unsignedTinyInteger('phone_type')->default(1);
             $table->string('phone',15);
             $table->smallInteger('has_messenger')->default(0);

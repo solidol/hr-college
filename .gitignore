@@ -18,3 +18,12 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+
+# Тимчасові файли Word
+~$*
+
+# Тимчасові файли Excel
+~$*.xlsx
+~$*.xlsb
+~$*.xlsm
+~$*.xls

@@ -35,47 +35,7 @@ class UserSeeder extends Seeder
             'status' => 1
         ]);
 
-/*
-        User::create([
-            'name' => 'levitsky',
-            'email' => 'levitsky.v.n@gmail.com',
-            'password' => Hash::make('111111'),
-            'userable_id' => 1,
-            'userable_type' => 'App\Models\Employee',
-            'roles' => 'employee,admin',
-            'status' => 1
-        ]);
 
-         User::create([
-            'name' => 'safonov',
-            'email' => 'nemko85@gmail.com',
-            'password' => Hash::make('111111'),
-            'userable_id' => 2,
-            'userable_type' => 'App\Models\Employee',
-            'roles' => 'employee',
-            'status' => 1
-        ]);
-
-        User::create([
-            'name' => 'test',
-            'email' => 'test666@gmail.com',
-            'password' => Hash::make('111111'),
-            'userable_id' => 3,
-            'userable_type' => 'App\Models\Employee',
-            'roles' => 'employee',
-            'status' => 1
-        ]);
-
-        User::create([
-            'name' => 'derector',
-            'email' => 'derector@gmail.com',
-            'password' => Hash::make('111111'),
-            'userable_id' => 4,
-            'userable_type' => 'App\Models\Employee',
-            'roles' => 'employee,boss',
-            'status' => 1
-        ]);
-*/
 
     }
 }

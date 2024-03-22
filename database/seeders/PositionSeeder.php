@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 use Faker\Generator;
 use App\Models\Position;
 use App\Models\PositionRank;
-
+use App\Models\PedagogicalRank;
 
 class PositionSeeder extends Seeder
 {
@@ -23,89 +23,79 @@ class PositionSeeder extends Seeder
     public function run()
     {
 
-        PositionRank::create([
-            'ped_rank' => 'Спеціаліст без категорії',
-            'ped_title' => ''
-        ]);
-        PositionRank::create([
-            'ped_rank' => 'Відповідає займаній посаді',
-            'ped_title' => ''
-        ]);
-        PositionRank::create([
-            'ped_rank' => 'Спеціаліст другої категорії',
-            'ped_title' => ''
-        ]);
-        PositionRank::create([
-            'ped_rank' => 'Спеціаліст першої категорії',
-            'ped_title' => ''
-        ]);
-        PositionRank::create([
-            'ped_rank' => 'Спеціаліст вищої категорії',
-            'ped_title' => ''
-        ]);
-        PositionRank::create([
-            'ped_rank' => 'Спеціаліст вищої категорії',
-            'ped_title' => 'Викладач-методист'
-        ]);
+        PositionRank::create(['title' => '-']);
+        PositionRank::create(['title' => 'Спеціаліст без категорії']);
+        PositionRank::create(['title' => 'Відповідає займаній посаді']);
+        PositionRank::create(['title' => 'Спеціаліст другої категорії']);
+        PositionRank::create(['title' => 'Спеціаліст першої категорії']);
+        PositionRank::create(['title' => 'Спеціаліст вищої категорії']);
 
-        Position::insert([
-            ['title' => 'Директор'],
-            ['title' => 'Заступник директора з навчальної роботи'],
-            ['title' => 'Засупник директора з навчально - виховної роботи'],
-            ['title' => 'Заступник директора з адміністративно - господарської діяльності'],
-            ['title' => 'Заступник директора з навчально - виробничої роботи '],
-            ['title' => 'Завідувач відділенням'],
-            ['title' => 'Завідувач  навчально - виробничими майстернями'],
-            ['title' => 'Керівник фізичного виховання'],
-            ['title' => 'Вихователь'],
-            ['title' => 'Завідувач навчальної лабораторії'],
-            ['title' => 'Завідувач навчально - методичної лабораторії'],
-            ['title' => 'Завідувач навчально - методичним кабінетом'],
-            ['title' => 'Методист'],
-            ['title' => 'Методист відділення'],
-            ['title' => 'Соціальний педагог'],
-            ['title' => 'Практичний психолог'],
-            ['title' => 'Завідувач виробничої практики'],
-            ['title' => 'Майстер виробничого навчання'],
-            ['title' => 'Головний бухгалтер'],
-            ['title' => 'Завідувач бібліотеки'],
-            ['title' => 'Провідний інженер  з охорони праці'],
-            ['title' => 'Начальник штабу цивільної оборони'],
-            ['title' => 'Юристконсульт'],
-            ['title' => 'Адміністратор бази даних'],
-            ['title' => 'Фахівець підрозділу сприяння працевлаштуванню випускників навчального закладу'],
-            ['title' => 'Фахівець з профорієнтації випусників навчального закладу ІІ категорії'],
-            ['title' => 'Лаборант'],
-            ['title' => 'Старший лаборант'],
-            ['title' => 'Секретар навчальної частини'],
-            ['title' => 'Бібліотекар провідний'],
-            ['title' => 'Помічник директора з кадрової роботи'],
-            ['title' => 'Старший інспектор з кадрів'],
-            ['title' => 'Інспектор з кадрів з обліку студентів'],
-            ['title' => 'Бухгалтер провідний'],
-            ['title' => 'Бухгалтер І категорії'],
-            ['title' => 'Інженер - електронік провідний'],
-            ['title' => 'Завідувач канцелярією'],
-            ['title' => 'Архіваріус'],
-            ['title' => 'Секретар друкарка'],
-            ['title' => 'Інженер'],
-            ['title' => 'Діловод'],
-            ['title' => 'Завідувач господарства'],
-            ['title' => 'Диспетчер'],
-            ['title' => 'Прибиральник службових приміщень'],
-            ['title' => 'Сторож'],
-            ['title' => 'Двірник'],
-            ['title' => 'Робітник з комплексного обслуговування і ремонту будинків'],
-            ['title' => 'Слюсар -сантехнік'],
-            ['title' => 'Електромонтер з ремонту та обслуговування електроустаткування'],
-            ['title' => 'Викладач'],
-            ['title' => 'Економіст провідний'],
-            ['title' => 'Сестра медична'],
-            ['title' => 'Столяр'],
-            ['title' => 'Паспортист'],
-            ['title' => 'Завідувач гуртожитку'],
-            ['title' => 'Черговий по гуртожитку'],
-        ]);
 
+        PedagogicalRank::create(['title' => '-']);
+        PedagogicalRank::create(['title' => 'Викладач-методист']);
+        PedagogicalRank::create(['title' => 'Учитель-методист']);
+        PedagogicalRank::create(['title' => 'Вихователь-методист']);
+        PedagogicalRank::create(['title' => 'Педагог-організатор-методист']);
+        PedagogicalRank::create(['title' => 'Старший викладач']);
+        PedagogicalRank::create(['title' => 'Старший учитель']);
+        PedagogicalRank::create(['title' => 'Старший вихователь']);
+
+
+        Position::create(['title' => 'Директор']); 
+        Position::create(['title' => 'Заступник директора з навчальної роботи']); 
+        Position::create(['title' => 'Засупник директора з навчально-виховної роботи']); 
+        Position::create(['title' => 'Заступник директора з адміністративно-господарської діяльності']); 
+        Position::create(['title' => 'Заступник директора з навчально-виробничої роботи ']); 
+        Position::create(['title' => 'Завідувач відділенням']); 
+        Position::create(['title' => 'Завідувач  навчально - виробничими майстернями']); 
+        Position::create(['title' => 'Керівник фізичного виховання']); 
+        Position::create(['title' => 'Вихователь']); 
+        Position::create(['title' => 'Завідувач навчальної лабораторії']); 
+        Position::create(['title' => 'Завідувач навчально-методичної лабораторії']); 
+        Position::create(['title' => 'Завідувач навчально-методичним кабінетом']); 
+        Position::create(['title' => 'Методист']); 
+        Position::create(['title' => 'Методист відділення']); 
+        Position::create(['title' => 'Соціальний педагог']); 
+        Position::create(['title' => 'Практичний психолог']); 
+        Position::create(['title' => 'Завідувач виробничої практики']); 
+        Position::create(['title' => 'Майстер виробничого навчання']); 
+        Position::create(['title' => 'Головний бухгалтер']); 
+        Position::create(['title' => 'Завідувач бібліотеки']); 
+        Position::create(['title' => 'Провідний інженер  з охорони праці']); 
+        Position::create(['title' => 'Начальник штабу цивільної оборони']); 
+        Position::create(['title' => 'Юристконсульт']); 
+        Position::create(['title' => 'Адміністратор бази даних']); 
+        Position::create(['title' => 'Фахівець підрозділу сприяння працевлаштуванню випускників навчального закладу']); 
+        Position::create(['title' => 'Фахівець з профорієнтації випусників навчального закладу ІІ категорії']); 
+        Position::create(['title' => 'Лаборант']); 
+        Position::create(['title' => 'Старший лаборант']); 
+        Position::create(['title' => 'Секретар навчальної частини']); 
+        Position::create(['title' => 'Бібліотекар провідний']); 
+        Position::create(['title' => 'Помічник директора з кадрової роботи']); 
+        Position::create(['title' => 'Старший інспектор з кадрів']); 
+        Position::create(['title' => 'Інспектор з кадрів з обліку студентів']); 
+        Position::create(['title' => 'Бухгалтер провідний']); 
+        Position::create(['title' => 'Бухгалтер І категорії']); 
+        Position::create(['title' => 'Інженер-електронік провідний']); 
+        Position::create(['title' => 'Завідувач канцелярією']); 
+        Position::create(['title' => 'Архіваріус']); 
+        Position::create(['title' => 'Секретар друкарка']); 
+        Position::create(['title' => 'Інженер']); 
+        Position::create(['title' => 'Діловод']); 
+        Position::create(['title' => 'Завідувач господарства']); 
+        Position::create(['title' => 'Диспетчер']); 
+        Position::create(['title' => 'Прибиральник службових приміщень']); 
+        Position::create(['title' => 'Сторож']); 
+        Position::create(['title' => 'Двірник']); 
+        Position::create(['title' => 'Робітник з комплексного обслуговування і ремонту будинків']); 
+        Position::create(['title' => 'Слюсар-сантехнік']); 
+        Position::create(['title' => 'Електромонтер з ремонту та обслуговування електроустаткування']); 
+        Position::create(['title' => 'Викладач']); 
+        Position::create(['title' => 'Економіст провідний']); 
+        Position::create(['title' => 'Сестра медична']); 
+        Position::create(['title' => 'Столяр']); 
+        Position::create(['title' => 'Паспортист']); 
+        Position::create(['title' => 'Завідувач гуртожитку']); 
+        Position::create(['title' => 'Черговий по гуртожитку']);
     }
 }

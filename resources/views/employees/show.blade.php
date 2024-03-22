@@ -50,11 +50,31 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="gender" class="col-4 col-form-label">Стать</label>
+                    <label for="gender" class="col-4 col-form-label">Громадянство</label>
                     <div class="col-8">
                         <input id="citizenship" name="citizenship" type="text" class="form-control"
                             value="{{ $employee->citizenship }}" readonly="readonly">
                     </div>
+                </div>
+
+
+            </div>
+            <div class="col-6">
+                <div class="form-group row">
+                    <label for="all_experience" class="col-4 col-form-label">Стаж роботи</label>
+                    <div class="col-6">
+                        <input id="all_experience" name="all_experience" type="text" class="form-control"
+                            value="{{ $employee->all_experience }}" readonly="readonly">
+                    </div>
+                    <label class="col-2 col-form-label">міс.</label>
+                </div>
+                <div class="form-group row">
+                    <label for="ped_experience" class="col-4 col-form-label">Педагогічний стаж</label>
+                    <div class="col-6">
+                        <input id="ped_experience" name="ped_experience" type="text" class="form-control"
+                            value="{{ $employee->ped_experience }}" readonly="readonly">
+                    </div>
+                    <label class="col-2 col-form-label">міс.</label>
                 </div>
                 <div class="form-group row">
                     <label for="languages" class="col-4 col-form-label">Знання іноземних мов</label>
@@ -73,14 +93,18 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
             <div class="col-6">
                 @include('employees.parts.phones')
+            </div>
+            <div class="col-6">
                 @include('employees.parts.addresses')
             </div>
         </div>
         <div class="row">
             <div class="col-12">
-                @include('employees.parts.positions')
+                @include('employees.parts.positioncards')
             </div>
         </div>
 

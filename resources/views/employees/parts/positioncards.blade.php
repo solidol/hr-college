@@ -17,7 +17,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($employee->positioncards as $card)
+        @foreach ($employee->positionCards as $card)
             <tr>
                 <td>
                     {{ $card->position->title }}

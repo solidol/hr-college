@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->unsignedBigInteger('created_by')->default(1);
+            $table->unsignedBigInteger('updated_by')->default(1);
             $table->morphs('personable');
             $table->unsignedTinyInteger('type');
             $table->string('region',100)->nullable();

@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('education', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->unsignedBigInteger('created_by')->default(1);
+            $table->unsignedBigInteger('updated_by')->default(1);
             $table->string('title');
             $table->date('date_start')->nullable()->comment('Дата початку навчання');
             $table->date('date_end')->nullable()->comment('Дата закінчення навчання');

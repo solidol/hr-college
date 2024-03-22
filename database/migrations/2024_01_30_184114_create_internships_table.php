@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('internships', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->unsignedBigInteger('created_by')->default(1);
+            $table->unsignedBigInteger('updated_by')->default(1);
             $table->string('thesis',2000)->nullable();
             $table->string('institution',2000)->nullable();
             $table->string('department',2000)->nullable();

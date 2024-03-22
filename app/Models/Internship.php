@@ -18,14 +18,14 @@ class Internship extends Model
         return $this->belongsTo(InternshipType::class, 'internship_type_id');
     }
 
-    public function positioncard()
+    public function positionCard()
     {
         return $this->belongsTo(PositionCard::class, 'position_card_id');
     }
-    /*
-        public function employee()
+
+    public function employee()
     {
-        return $this->belongsTo(Employee::class);
+        //return $this->belongsTo(Employee::class);
     }
-    */
+
 }

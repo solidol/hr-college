@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('attestations', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->unsignedBigInteger('created_by')->default(1);
+            $table->unsignedBigInteger('updated_by')->default(1);
             $table->date('at_date')->nullable();
             $table->unsignedBigInteger('position_rank_id');
+            $table->unsignedBigInteger('pedagogical_rank_id')->default(1);
             $table->unsignedBigInteger('position_card_id');
             $table->tinyInteger('at_type')->default(1);
             $table->text('description')->nullable();

@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('publications', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->unsignedBigInteger('created_by')->default(1);
+            $table->unsignedBigInteger('updated_by')->default(1);
             $table->string('authors',1000);
             $table->string('title',1000);
             $table->unsignedBigInteger('employee_id');

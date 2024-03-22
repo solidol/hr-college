@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('position_cards', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->unsignedBigInteger('created_by')->default(1);
+            $table->unsignedBigInteger('updated_by')->default(1);
             $table->unsignedBigInteger('employee_id')->default(0);
             $table->unsignedBigInteger('position_id')->default(0);
             $table->tinyInteger('position_type')->default(1)->comment('1 - основна, 2 - сумісництво, 3 - зовнішній сумісник');

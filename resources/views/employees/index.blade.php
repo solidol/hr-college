@@ -15,6 +15,9 @@
                                 ПІБ
                             </th>
                             <th>
+                                Посада
+                            </th>
+                            <th>
                                 Дата народження
                             </th>
                             <th>
@@ -32,11 +35,18 @@
                                     {{ $employee->fullname }}
                                 </td>
                                 <td>
+                                    @if ($employee->positionCards()->first())
+                                        {{ $employee->positionCards()->first()->position->title }}
+                                    @endif
+                                </td>
+                                <td>
                                     {{ $employee->birthdate->format('d.m.Y') }}
                                 </td>
                                 <td>
-                                    <a href="{{ URL::route('employees.show', ['employee' => $employee]) }}"
-                                        class="btn btn-success"><i class="bi bi-person-rolodex"></i> Перегляд</a>
+                                    @if ($employee->reg_number != '00000')
+                                        <a href="{{ URL::route('employees.show', ['employee' => $employee]) }}"
+                                            class="btn btn-success"><i class="bi bi-person-rolodex"></i> Перегляд</a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

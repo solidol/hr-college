@@ -15,4 +15,7 @@ class Attestation extends Model
     public function positionRank(){
         return $this->belongsTo(PositionRank::class);
     }
+    public function pedagogicalRank(){
+        return $this->belongsTo(PedagogicalRank::class);
+    }
 }

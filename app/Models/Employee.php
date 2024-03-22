@@ -14,7 +14,7 @@ class Employee extends Model
     ];
     protected $guarded = [];
 
-    public function positioncards()
+    public function positionCards()
     {
         return $this->hasMany(PositionCard::class);
     }
