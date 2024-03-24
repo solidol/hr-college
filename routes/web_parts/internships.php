@@ -14,7 +14,7 @@ Route::get('/internships/{internship}/edit', [InternshipController::class, 'edit
     name('internships.edit')->middleware('can:edit,internship');
 
 Route::patch('/internships/{internship}', [InternshipController::class, 'update'])->
-    name('internships.update')->middleware('can:update,internship');
+    name('internships.update')->middleware('can:edit,internship');
 
 Route::delete('/internships/{internship}/delete', [InternshipController::class, 'delete'])->
     name('internships.delete')->middleware('can:delete,internship');

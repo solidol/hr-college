@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         <h1>Картки працівників</h1>
+
         <div class="row">
             <div class="col-md-12">
                 <table id="tabemp" class="table table-striped">
@@ -58,6 +59,8 @@
     <script type="module">
         $(document).ready(function() {
             $('#tabemp').DataTable({
+                ordering: false,
+                paging: false,
                 buttons: [],
                 lengthMenu: [50, 100, 500],
                 language: languageUk,

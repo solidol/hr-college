@@ -3,7 +3,11 @@
 @section('content')
     <div class="container">
         <h1>Картка працівника</h1>
-
+        <div class="row">
+            <div class="col">
+                <a href="{{URL::route('positioncards.index')}}" class="btn btn-success">До всіх карток</a>
+            </div>
+        </div>
         <div class="row">
             <div class="col-6">
                 <h2>Загальна інформація</h2>

@@ -3,8 +3,14 @@
 @section('content')
     <form action="{{ URL::route('internships.update', ['internship' => $internship]) }}" method="post">
         @csrf
+        @method('PATCH')
         <div class="container">
             <h1>Редагувати картку підвищення кваліфікації</h1>
+            <div class="row">
+                <div class="col">
+                    <a href="{{URL::route('positioncards.internships.show',['positioncard'=>$internship->positioncard])}}" class="btn btn-success">До всіх карток</a>
+                </div>
+            </div>
             <div class="row">
                 <h2>Загальна інформація</h2>
                 <div class="col-6">

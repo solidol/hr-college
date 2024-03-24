@@ -11,7 +11,7 @@ class EmployeeController extends Controller
 {
     public function index()
     {
-        $employees = Employee::all()->sortBy('title');
+        $employees = Employee::all()->sortBy('fullname');
         return view('employees.index', ['employees' => $employees]);
     }
     public function show(Employee $employee)
