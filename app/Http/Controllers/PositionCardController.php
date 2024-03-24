@@ -17,6 +17,10 @@ class PositionCardController extends Controller
     {
         return view('positioncards.internships', ['positioncard' => $positioncard]);
     }
+    public function attestations(PositionCard $positioncard)
+    {
+        return view('positioncards.attestations', ['positioncard' => $positioncard]);
+    }
 
 
 }

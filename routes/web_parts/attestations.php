@@ -1,31 +1,30 @@
 <?php
 use App\Models\Internship;
-use App\Http\Controllers\InternshipController;
-use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\AttestationController;
 use App\Http\Controllers\PositionCardController;
 
-Route::get('/internships', [InternshipController::class, 'index'])->
-    name('internships.index')->middleware('can:index,' . Internship::class);
+Route::get('/attestations', [AttestationController::class, 'index'])->
+    name('attestations.index')->middleware('can:index,' . Internship::class);
 
-Route::get('/internships/{internship}', [InternshipController::class, 'show'])->
-    name('internships.show')->middleware('can:show,internship');
+Route::get('/attestations/{attestation}', [AttestationController::class, 'show'])->
+    name('attestations.show')->middleware('can:show,attestation');
 
-Route::get('/internships/{internship}/edit', [InternshipController::class, 'edit'])->
-    name('internships.edit')->middleware('can:edit,internship');
+Route::get('/attestations/{attestation}/edit', [AttestationController::class, 'edit'])->
+    name('attestations.edit')->middleware('can:edit,attestation');
 
-Route::patch('/internships/{internship}', [InternshipController::class, 'update'])->
-    name('internships.update')->middleware('can:update,internship');
+Route::patch('/attestations/{attestation}', [AttestationController::class, 'update'])->
+    name('attestations.update')->middleware('can:update,attestation');
 
-Route::delete('/internships/{internship}/delete', [InternshipController::class, 'delete'])->
-    name('internships.delete')->middleware('can:delete,internship');
+Route::delete('/attestations/{attestation}/delete', [AttestationController::class, 'delete'])->
+    name('attestations.delete')->middleware('can:delete,attestation');
 
 //=====================
-Route::get('/positioncards/{positioncard}/internships', [PositionCardController::class, 'itnternships'])->
-    name('positioncards.internships.show')->middleware('can:showInternships,positioncard');
+Route::get('/positioncards/{positioncard}/attestations', [PositionCardController::class, 'attestations'])->
+    name('positioncards.attestations.show')->middleware('can:showAttestations,positioncard');
 
-Route::get('/positioncards/{positioncard}/internships/create', [InternshipController::class, 'create'])->
-    name('positioncards.internships.create');//->middleware('can:createInternship,positioncard');
+Route::get('/positioncards/{positioncard}/attestations/create', [AttestationController::class, 'create'])->
+    name('positioncards.attestations.create');//->middleware('can:createInternship,positioncard');
 
-Route::post('/positioncards/{positioncard}/internships', [InternshipController::class, 'store'])->
-    name('positioncards.internships.store');//->middleware('can:create,employee');
+Route::post('/positioncards/{positioncard}/attestations', [AttestationController::class, 'store'])->
+    name('positioncards.attestations.store');//->middleware('can:create,employee');
 

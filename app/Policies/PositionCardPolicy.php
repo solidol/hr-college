@@ -36,7 +36,7 @@ class PositionCardPolicy
             $user->isAdmin() || 
             $user->id === $positioncard->employee->user->id;
     }
-    public function createInternship(User $user, PositionCard $positioncard): bool
+    public function showAttestations(User $user, PositionCard $positioncard): bool
     {
         return
             $user->isHR() || 

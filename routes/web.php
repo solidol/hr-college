@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth'], function () {
     include __DIR__ . "/web_parts/phones.php";
     include __DIR__ . "/web_parts/internships.php";
     include __DIR__ . "/web_parts/positions.php";
+    include __DIR__ . "/web_parts/attestations.php";
 });
 
 

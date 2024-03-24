@@ -9,7 +9,7 @@
                     class="btn btn-success">
                     Підвищення кваліфікації
                 </a>
-                <a href="{{ URL::route('positioncards.internships.show', ['positioncard' => $positioncard]) }}"
+                <a href="{{ URL::route('positioncards.attestations.show', ['positioncard' => $positioncard]) }}"
                     class="btn btn-success">
                     Атестації
                 </a>
