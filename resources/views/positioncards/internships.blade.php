@@ -5,7 +5,7 @@
         <h1>Підвищення кваліфікації працівника {{ $positioncard->employee->fullname }}</h1>
         <div class="row">
             <div class="col">
-                <a href="{{ URL::route('internships.create', ['positioncard' => $positioncard]) }}" class="btn btn-success">
+                <a href="{{ URL::route('positioncards.internships.create', ['positioncard' => $positioncard]) }}" class="btn btn-success">
                     Додати нове
                 </a>
             </div>

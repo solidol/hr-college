@@ -53,14 +53,7 @@ class EmployeePolicy
             $user->isHR() || 
             $user->isAdmin();
     }
-    public function createInternship(User $user, Employee $employee): bool
-    {
-        return
-            $user->isHR() || 
-            $user->isBoss() || 
-            $user->isAdmin() || 
-            $user->id === $employee->user->id;
-    }
+
     /**
      * Determine whether the user can update the model.
      */

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('updated_by')->default(1);
             $table->unsignedBigInteger('employee_id')->default(0);
             $table->unsignedBigInteger('position_id')->default(0);
+            $table->unsignedSmallInteger('position_grade')->default(0);
             $table->tinyInteger('position_type')->default(1)->comment('1 - основна, 2 - сумісництво, 3 - зовнішній сумісник');
             $table->decimal('volume',5,2);
             $table->date('date_start')->default('1990-01-01');

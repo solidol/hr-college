@@ -23,7 +23,7 @@ return new class extends Migration {
             $table->tinyInteger('gender')->nullable()->default(1)->comment('1 = male, 0 = female');
             $table->string('languages')->default('Англійська');
             $table->string('citizenship', 25)->default('Україна');
-            $table->unsignedSmallInteger('employee_grade')->nullable();
+            
             $table->unsignedSmallInteger('ped_experience')->nullable();
             $table->unsignedSmallInteger('all_experience')->nullable();
             $table->unsignedBigInteger('scientific_rank_id')->default(1);

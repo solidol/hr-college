@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PositionCard;
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use App\Models\InternshipType;
 
 class PositionCardController extends Controller
 {
@@ -16,4 +17,6 @@ class PositionCardController extends Controller
     {
         return view('positioncards.internships', ['positioncard' => $positioncard]);
     }
+
+
 }

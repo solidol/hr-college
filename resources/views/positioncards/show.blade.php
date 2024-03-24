@@ -5,10 +5,12 @@
         <h1>Картка посади працівника {{ $positioncard->employee->fullname }}</h1>
         <div class="row">
             <div class="col">
-                <a href="{{ URL::route('positioncards.show.internships', ['positioncard' => $positioncard]) }}" class="btn btn-success">
+                <a href="{{ URL::route('positioncards.internships.show', ['positioncard' => $positioncard]) }}"
+                    class="btn btn-success">
                     Підвищення кваліфікації
                 </a>
-                <a href="{{ URL::route('positioncards.show.internships', ['positioncard' => $positioncard]) }}" class="btn btn-success">
+                <a href="{{ URL::route('positioncards.internships.show', ['positioncard' => $positioncard]) }}"
+                    class="btn btn-success">
                     Атестації
                 </a>
 
@@ -49,7 +51,13 @@
                             value="{{ $positioncard->volume }}" readonly="readonly">
                     </div>
                 </div>
-
+                <div class="form-group row">
+                    <label for="gender" class="col-4 col-form-label">Розряд</label>
+                    <div class="col-8">
+                        <input id="position_grade" name="position_grade" type="text" class="form-control"
+                            value="{{ $positioncard->position_grade>0?$positioncard->position_grade:"-" }}" readonly="readonly">
+                    </div>
+                </div>
             </div>
             <div class="col-6">
                 <h2>Атестація та категорія</h2>

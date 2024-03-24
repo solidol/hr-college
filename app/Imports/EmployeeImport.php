@@ -59,6 +59,7 @@ class EmployeeImport implements ToCollection
                 'position_id' => $pc1id,
                 'position_type' => 1,
                 'volume' => 1,
+                'position_grade' => $row[11]??0
             ]);
 
 
@@ -96,23 +97,56 @@ class EmployeeImport implements ToCollection
             $emp->positionCards()->save(
                 $pc1
             );
-            /*
-                        $pc2 = PositionCard::create([
-                            'date_start' => ExcelDate::excelToDateTimeObject($row[19])->format('Y-m-d'),
-                            'position_id' => 51,
-                            'position_type' => 1,
-                            'volume' => 0.5,
-                        ]);
-                        $pc2->attestations()->save(
-                            new Attestation([
-                                'position_rank_id' => 5,
-                                'at_date' => ExcelDate::excelToDateTimeObject($row[20])->format('Y-m-d'),
-                            ])
-                        );
-                        $emp->positionCards()->save(
-                            $pc2
-                        );
-            */
+
+            if ($row[14]!=""){
+
+                $pc1id = Position::where('title', 'LIKE', trim($row[14]))->get()[0]->id;
+
+                $pc1 = PositionCard::create([
+                    'date_start' => ExcelDate::excelToDateTimeObject($row[17])->format('Y-m-d'),
+                    'position_id' => $pc1id,
+                    'position_type' => 1,
+                    'volume' => 0.5,
+                    //'position_grade' => $row[11]??0
+                ]);
+    
+    
+                $pr1id = 1;
+    
+                switch (trim($row[15])) {
+                    case "без категорії":
+                        $pr1id = 2;
+                        break;
+                    case "відповідає займаній посаді":
+                        $pr1id = 3;
+                        break;
+                    case "друга":
+                        $pr1id = 4;
+                        break;
+                    case "перша":
+                        $pr1id = 5;
+                        break;
+                    case "вища":
+                        $pr1id = 6;
+                        break;
+                    default:
+                        $pr1id = 1;
+                }
+    
+                $pedrank1id = PedagogicalRank::where('title', 'LIKE', trim($row[19]))->get()[0]->id;
+                $pc1->attestations()->save(
+                    new Attestation([
+                        'at_date' => ExcelDate::excelToDateTimeObject($row[18])->format('Y-m-d'),
+                        'position_rank_id' => $pr1id,
+                        'pedagogical_rank_id' => $pedrank1id
+    
+                    ])
+                );
+                $emp->positionCards()->save(
+                    $pc1
+                );
+
+            }
 
 
         }

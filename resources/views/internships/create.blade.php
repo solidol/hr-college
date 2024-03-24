@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{ URL::route('internships.store', ['employee' => $employee]) }}" method="post">
+    <form action="{{ URL::route('positioncards.internships.store', ['positioncard' => $positioncard]) }}" method="post">
         @csrf
         <div class="container">
             <h1>Створити картку підвищення кваліфікації</h1>
@@ -12,7 +12,7 @@
                         <label for="lastname" class="col-4 col-form-label">Власник</label>
                         <div class="col-8">
                             <input id="lastname" name="lastname" type="text" class="form-control"
-                                value="{{ $employee->fullname }}" readonly="readonly">
+                                value="{{ $positioncard->employee->fullname }}" readonly="readonly">
                         </div>
                     </div>
                     <div class="form-group row">

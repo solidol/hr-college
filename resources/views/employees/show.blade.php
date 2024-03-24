@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="gender" class="col-4 col-form-label">Громадянство</label>
+                    <label for="citizenship" class="col-4 col-form-label">Громадянство</label>
                     <div class="col-8">
                         <input id="citizenship" name="citizenship" type="text" class="form-control"
                             value="{{ $employee->citizenship }}" readonly="readonly">
@@ -60,6 +60,7 @@
 
             </div>
             <div class="col-6">
+
                 <div class="form-group row">
                     <label for="all_experience" class="col-4 col-form-label">Стаж роботи</label>
                     <div class="col-6">

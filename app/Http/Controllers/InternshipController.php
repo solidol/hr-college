@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Internship;
 use App\Models\InternshipType;
 use App\Models\Employee;
+use App\Models\PositionCard;
 
 class InternshipController extends Controller
 {
@@ -22,12 +23,12 @@ class InternshipController extends Controller
         $ittp = InternshipType::all();
         return view('internships.edit', ['internship' => $internship, 'internshipTypes' => $ittp]);
     }
-    public function create(Employee $employee)
+    public function create(PositionCard $positioncard)
     {
         $ittp = InternshipType::all();
-        return view('internships.create', ['internshipTypes' => $ittp, 'employee' => $employee]);
+        return view('internships.create', ['internshipTypes' => $ittp, 'positioncard' => $positioncard]);
     }
-    public function store(Request $request, Employee $employee)
+    public function store(Request $request, PositionCard $positioncard)
     {
         $internship = new Internship();
         $internship->thesis = $request->thesis;
@@ -39,7 +40,7 @@ class InternshipController extends Controller
         $internship->thesis = $request->thesis;
         $internship->status = 1;
         $internship->description = $request->description;
-        $internship->employee_id = $employee->id;
+        $internship->position_card_id = $positioncard->id;
         $internship->internship_type_id = $request->internship_type;
         $internship->save();
         return redirect()->route('internships.edit', ['internship' => $internship]);

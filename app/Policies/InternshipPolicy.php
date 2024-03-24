@@ -4,7 +4,7 @@ namespace App\Policies;
 
 use App\Models\Internship;
 use App\Models\User;
-use App\Models\Employee;
+use App\Models\PositionCard;
 use Illuminate\Auth\Access\Response;
 
 class InternshipPolicy
@@ -29,26 +29,27 @@ class InternshipPolicy
             $user->isHR() || 
             $user->isBoss() || 
             $user->isAdmin() || 
-            $user->id === $internship->employee->user->id;
+            $user->id === $internship->positionCard->employee->user->id;
     }
 
     public function edit(User $user, Internship $internship): bool
     {
         if ($user->isHR() || $user->isAdmin()) return true;
         if ($internship->status!=1 || $internship->status!=3) return true;
-        return $user->id === $internship->employee->user->id;
+        return $user->id === $internship->positionCard->employee->user->id;
     }
 
     /**
      * Determine whether the user can create models.
      */
-    public function create(User $user, Employee $employee): bool
+    public function create(User $user, PositionCard $positioncard): bool
     {
+        dd('222');
         return
             $user->isHR() || 
             $user->isBoss() || 
             $user->isAdmin() || 
-            $user->id === $employee->user->id;
+            $user->id === $positioncard->employee->user->id;
     }
 
     /**
@@ -59,7 +60,7 @@ class InternshipPolicy
         if (!$internship->editable)
             return false;
         return
-            $user->id === $internship->employee->user->id || 
+            $user->id === $internship->positionCard->employee->user->id || 
             $user->isHR() || 
             $user->isAdmin();
     }
