@@ -5,7 +5,7 @@
         <h1>Картка працівника</h1>
         <div class="row">
             <div class="col">
-                <a href="{{URL::route('positioncards.index')}}" class="btn btn-success">До всіх карток</a>
+                <a href="{{URL::route('employees.index')}}" class="btn btn-success">До всіх карток</a>
             </div>
         </div>
         <div class="row">
