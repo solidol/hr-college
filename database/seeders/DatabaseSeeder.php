@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             EmployeeSeeder::class,
             DocumentSeeder::class,
             InternshipSeeder::class,
+            InstitutionSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 

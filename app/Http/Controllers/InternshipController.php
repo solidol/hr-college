@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Internship;
 use App\Models\InternshipType;
 use App\Models\Employee;
+use App\Models\Institution;
 use App\Models\PositionCard;
 
 class InternshipController extends Controller
@@ -26,7 +27,12 @@ class InternshipController extends Controller
     public function create(PositionCard $positioncard)
     {
         $ittp = InternshipType::all();
-        return view('internships.create', ['internshipTypes' => $ittp, 'positioncard' => $positioncard]);
+        $ins = Institution::all();
+        return view('internships.create', [
+            'institutions' => $ins,
+            'internshipTypes' => $ittp,
+            'positioncard' => $positioncard
+        ]);
     }
     public function store(Request $request, PositionCard $positioncard)
     {

@@ -72,6 +72,18 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="institution_sel" class="col-4 col-form-label">Швидка підказка</label>
+                        <div class="col-8">
+                            <select id="institution_sel" name="institution_sel" class="form-select">
+                                @foreach ($institutions as $institution)
+                                    <option value="{{ $institution->id }}" data-title="{{ $institution->title }}">
+                                        {{ $institution->short_title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="department" class="col-4 col-form-label">Структурний підрозділ</label>
                         <div class="col-8">
                             <textarea id="department" name="department" cols="40" rows="3" class="form-control"
@@ -105,10 +117,13 @@
 
     <script type="module">
         $(document).ready(function() {
+            $('#institution_sel').change(function() {
+                $('#institution').text($(this).find(":selected").data('title'));
+            });
             $('#cb_one_day').click(function() {
                 if ($(this).is(':checked')) {
                     $('#row_date_end').hide();
-                }else{
+                } else {
                     $('#row_date_end').show();
                 }
             });
