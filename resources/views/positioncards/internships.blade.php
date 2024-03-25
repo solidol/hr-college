@@ -17,6 +17,9 @@
                     <thead>
                         <tr>
                             <th>
+
+                            </th>
+                            <th>
                                 Організація та тема
                             </th>
                             <th>
@@ -36,6 +39,25 @@
                     <tbody>
                         @foreach ($positioncard->internships as $internship)
                             <tr>
+                                <td>
+                                    @switch($internship->status)
+                                        @case(0)
+                                            <i class="bi bi-check-square text-success fs-3"></i>
+                                        @break
+
+                                        @case(1)
+                                            <i class="bi bi-pencil-square text-success fs-3"></i>
+                                        @break
+
+                                        @case(2)
+                                            <i class="bi bi-question-square text-danger fs-3"></i>
+                                        @break
+
+                                        @case(3)
+                                            <i class="bi bi-x-square text-danger fs-3"></i>
+                                        @break
+                                    @endswitch
+                                </td>
                                 <td>
                                     <div>
                                         {{ $internship->institution }}
