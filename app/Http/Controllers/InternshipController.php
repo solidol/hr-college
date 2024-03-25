@@ -36,6 +36,9 @@ class InternshipController extends Controller
         $internship->department = $request->department;
         $internship->date_start = $request->date_start;
         $internship->date_end = $request->date_end;
+        if ($request->cb_one_day) {
+            $internship->date_end = $internship->date_start;
+        }
         $internship->hours = $request->hours;
         $internship->thesis = $request->thesis;
         $internship->status = 1;

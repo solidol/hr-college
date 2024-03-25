@@ -34,21 +34,31 @@
                     </div>
                     <div class="form-group row">
                         <label for="date_start" class="col-4 col-form-label">Дата початку</label>
-                        <div class="col-8">
+                        <div class="col-4">
                             <input id="date_start" name="date_start" type="date" class="form-control">
                         </div>
+                        <div class="col-1">
+                            <input id="cb_one_day" name="cb_one_day" type="checkbox" class="form-check-input">
+                        </div>
+                        <label class="col-3 form-check-label" for="flexCheckDefault">Один день</label>
+
                     </div>
-                    <div class="form-group row">
+
+                    <div class="form-group row" id="row_date_end">
                         <label for="date_end" class="col-4 col-form-label">Дата закінчення</label>
-                        <div class="col-8">
+                        <div class="col-4">
                             <input id="date_end" name="date_end" type="date" class="form-control">
+                        </div>
+                        <div class="col-4">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="hours" class="col-4 col-form-label">Години</label>
-                        <div class="col-8">
+                        <div class="col-4">
                             <input id="hours" name="hours" type="number" min="1" max="200" step="1"
                                 class="form-control">
+                        </div>
+                        <div class="col-4">
                         </div>
                     </div>
 
@@ -92,4 +102,16 @@
 
         </div>
     </form>
+
+    <script type="module">
+        $(document).ready(function() {
+            $('#cb_one_day').click(function() {
+                if ($(this).is(':checked')) {
+                    $('#row_date_end').hide();
+                }else{
+                    $('#row_date_end').show();
+                }
+            });
+        });
+    </script>
 @endsection
