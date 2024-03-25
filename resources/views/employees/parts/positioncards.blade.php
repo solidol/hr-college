@@ -30,7 +30,7 @@
                 </td>
                 <td>
                     <a href="{{ URL::route('positioncards.show', ['positioncard' => $card]) }}"
-                        class="btn btn-success">Переглянути</a>
+                        class="btn btn-success"><i class="bi bi-eye fs-5"></i></a>
                 </td>
             </tr>
         @endforeach

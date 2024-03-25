@@ -55,4 +55,15 @@ class Employee extends Model
                 return 'Невизначена';
         }
     }
+    public function getEditableAttribute()
+    {
+        switch ($this->status) {
+            case 1:
+                return true;
+            case 3:
+                return true;
+            default:
+                return false;
+        }
+    }
 }

@@ -5,7 +5,8 @@
         <h1>Підвищення кваліфікації працівника {{ $positioncard->employee->fullname }}</h1>
         <div class="row">
             <div class="col">
-                <a href="{{ URL::route('positioncards.internships.create', ['positioncard' => $positioncard]) }}" class="btn btn-success">
+                <a href="{{ URL::route('positioncards.internships.create', ['positioncard' => $positioncard]) }}"
+                    class="btn btn-success">
                     Додати нове
                 </a>
             </div>
@@ -25,10 +26,7 @@
                                 Дата закінчення
                             </th>
                             <th>
-                                Години
-                            </th>
-                            <th>
-                                Кредити
+                                Години та Кредити
                             </th>
                             <th>
 
@@ -53,18 +51,23 @@
                                 <td>
                                     {{ $internship->date_end->format('d.m.Y') }}
                                 </td>
+
                                 <td>
-                                    {{ $internship->hours }}
-                                </td>
-                                <td>
-                                    {{ $internship->hours / 30 }}
+                                    <div>
+                                        {{ $internship->hours }}
+                                    </div>
+                                    <hr>
+                                    <div>
+                                        {{ $internship->hours / 30 }}
+                                    </div>
+
                                 </td>
                                 <td>
                                     <a href="{{ URL::route('internships.show', ['internship' => $internship]) }}"
-                                        class="btn btn-success"><i class="bi bi-person-rolodex"></i> Перегляд</a>
+                                        class="btn btn-success"><i class="bi bi-eye fs-5"></i></a>
                                     @if ($internship->status == 1)
                                         <a href="{{ URL::route('internships.edit', ['internship' => $internship]) }}"
-                                            class="btn btn-danger"><i class="bi bi-person-rolodex"></i> Редагувати</a>
+                                            class="btn btn-danger"><i class="bi bi-pen-fill fs-5"></i></a>
                                     @endif
                                 </td>
                             </tr>

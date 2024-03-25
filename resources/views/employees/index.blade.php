@@ -10,6 +10,9 @@
                     <thead>
                         <tr>
                             <th>
+
+                            </th>
+                            <th>
                                 Табельний номер
                             </th>
                             <th>
@@ -30,6 +33,25 @@
                         @foreach ($employees as $employee)
                             <tr>
                                 <td>
+                                    @switch($employee->status)
+                                        @case(0)
+                                            <i class="bi bi-check-square text-success fs-3"></i>
+                                        @break
+
+                                        @case(1)
+                                            <i class="bi bi-pencil-square text-success fs-3"></i>
+                                        @break
+
+                                        @case(2)
+                                            <i class="bi bi-question-square text-danger fs-3"></i>
+                                        @break
+
+                                        @case(3)
+                                            <i class="bi bi-x-square text-danger fs-3"></i>
+                                        @break
+                                    @endswitch
+                                </td>
+                                <td>
                                     {{ $employee->reg_number }}
                                 </td>
                                 <td>
@@ -46,7 +68,9 @@
                                 <td>
                                     @if ($employee->reg_number != '00000')
                                         <a href="{{ URL::route('employees.show', ['employee' => $employee]) }}"
-                                            class="btn btn-success"><i class="bi bi-person-rolodex"></i> Перегляд</a>
+                                            class="btn btn-success"><i class="bi bi-eye fs-5"></i></a>
+                                        <a href="{{ URL::route('employees.edit', ['employee' => $employee]) }}"
+                                            class="btn btn-danger"><i class="bi bi-pen-fill fs-5"></i></a>
                                     @endif
                                 </td>
                             </tr>

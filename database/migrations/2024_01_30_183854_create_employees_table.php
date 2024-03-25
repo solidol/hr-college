@@ -29,7 +29,7 @@ return new class extends Migration {
             $table->unsignedBigInteger('scientific_rank_id')->default(1);
             $table->unsignedBigInteger('academic_rank_id')->default(1);
             $table->tinyInteger('active')->default(1)->comment('1 = active, 0 = archived');
-            $table->tinyInteger('status')->default(1)->comment('0 = accepted, 1 = editable, 2 = on review, 3 = accepted');
+            $table->tinyInteger('status')->default(1)->comment('0 = accepted, 1 = editable, 2 = on review, 3 = declined');
             $table->text('description')->nullable();
             $table->text('message')->nullable();
         });

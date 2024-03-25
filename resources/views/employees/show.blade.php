@@ -5,7 +5,7 @@
         <h1>Картка працівника</h1>
         <div class="row">
             <div class="col">
-                <a href="{{URL::route('employees.index')}}" class="btn btn-success">До всіх карток</a>
+                <a href="{{ URL::route('employees.index') }}" class="btn btn-success">До всіх карток</a>
             </div>
         </div>
         <div class="row">
@@ -64,22 +64,23 @@
 
             </div>
             <div class="col-6">
-
+                <h2>Інформація про роботу</h2>
                 <div class="form-group row">
                     <label for="all_experience" class="col-4 col-form-label">Стаж роботи</label>
-                    <div class="col-6">
-                        <input id="all_experience" name="all_experience" type="text" class="form-control"
-                            value="{{ $employee->all_experience }}" readonly="readonly">
+                    <div class="col-8 ">
+                        <p class="form-control">
+                            {{ round($employee->all_experience / 12) }} р. {{ $employee->all_experience % 12 }} міс.
+                        </p>
                     </div>
-                    <label class="col-2 col-form-label">міс.</label>
                 </div>
                 <div class="form-group row">
                     <label for="ped_experience" class="col-4 col-form-label">Педагогічний стаж</label>
-                    <div class="col-6">
-                        <input id="ped_experience" name="ped_experience" type="text" class="form-control"
-                            value="{{ $employee->ped_experience }}" readonly="readonly">
+                    <div class="col-8 ">
+                        <p class="form-control">
+                            {{ round($employee->ped_experience / 12) }} р. {{ $employee->ped_experience % 12 }} міс.
+                        </p>
                     </div>
-                    <label class="col-2 col-form-label">міс.</label>
+
                 </div>
                 <div class="form-group row">
                     <label for="languages" class="col-4 col-form-label">Знання іноземних мов</label>

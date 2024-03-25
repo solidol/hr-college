@@ -13,9 +13,9 @@ class EmployeePolicy
      */
     public function index(User $user): bool
     {
-        return 
-            $user->isHR() || 
-            $user->isBoss() || 
+        return
+            $user->isHR() ||
+            $user->isBoss() ||
             $user->isAdmin();
     }
 
@@ -25,9 +25,9 @@ class EmployeePolicy
     public function show(User $user, Employee $employee): bool
     {
         return
-            $user->isHR() || 
-            $user->isBoss() || 
-            $user->isAdmin() || 
+            $user->isHR() ||
+            $user->isBoss() ||
+            $user->isAdmin() ||
             $user->id === $employee->user->id;
     }
 
@@ -36,12 +36,12 @@ class EmployeePolicy
      */
     public function edit(User $user, Employee $employee): bool
     {
-        if ($employee->status!=1 || $employee->status!=3)
+        if ($user->isHR() || $user->isAdmin())
+            return true;
+        if (!$employee->editable)
             return false;
         return
-            $user->id === $employee->user->id || 
-            $user->isHR() || 
-            $user->isAdmin();
+            $user->id === $employee->user->id;
     }
 
     /**
@@ -49,8 +49,8 @@ class EmployeePolicy
      */
     public function create(User $user): bool
     {
-        return 
-            $user->isHR() || 
+        return
+            $user->isHR() ||
             $user->isAdmin();
     }
 
@@ -59,12 +59,12 @@ class EmployeePolicy
      */
     public function update(User $user, Employee $employee): bool
     {
+        if ($user->isHR() || $user->isAdmin())
+            return true;
         if (!$employee->editable)
             return false;
         return
-            $user->id === $employee->user->id || 
-            $user->isHR() || 
-            $user->isAdmin();
+            $user->id === $employee->user->id;
     }
 
     /**
@@ -72,8 +72,8 @@ class EmployeePolicy
      */
     public function delete(User $user, Employee $employee): bool
     {
-        return 
-            $user->isHR() || 
+        return
+            $user->isHR() ||
             $user->isAdmin();
     }
 
@@ -82,8 +82,8 @@ class EmployeePolicy
      */
     public function restore(User $user, Employee $employee): bool
     {
-        return 
-            $user->isHR() || 
+        return
+            $user->isHR() ||
             $user->isAdmin();
     }
 
@@ -92,7 +92,7 @@ class EmployeePolicy
      */
     public function forceDelete(User $user, Employee $employee): bool
     {
-        return 
+        return
             $user->isAdmin();
     }
 }

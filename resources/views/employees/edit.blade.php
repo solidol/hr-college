@@ -2,16 +2,16 @@
 
 @section('content')
     <div class="container">
-        <h1>Картка працівника</h1>
+        <h1>Картка працівника <span class="badge bg-danger">РЕДАГУВАННЯ</span></h1>
         <div class="row">
             <div class="col">
-                <a href="{{URL::route('positioncards.index')}}" class="btn btn-success">До всіх карток</a>
+                <a href="{{ URL::route('employees.index') }}" class="btn btn-success">До всіх карток</a>
             </div>
         </div>
-        <div class="row">
-            <div class="col-6">
-                <h2>Загальна інформація</h2>
-                <form action="{{ URL::route('employees.update', ['employee' => $employee]) }}" method="post">
+        <form action="{{ URL::route('employees.update', ['employee' => $employee]) }}" method="post">
+            <div class="row">
+                <div class="col-6">
+                    <h2>Загальна інформація</h2>
                     @csrf
                     @method('patch')
                     <div class="form-group row">
@@ -80,27 +80,63 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <div class="offset-4 col-8">
+                            <button name="submit" type="submit" class="btn btn-success">Зберегти</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-6">
+                    <h2>Інформація про роботу</h2>
+                    <div class="form-group row">
+                        <label for="all_experience" class="col-4 col-form-label">Стаж роботи</label>
+                        <div class="col-8 ">
+                            <p class="form-control">
+                                {{ round($employee->all_experience / 12) }} р. {{ $employee->all_experience % 12 }} міс.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="ped_experience" class="col-4 col-form-label">Педагогічний стаж</label>
+                        <div class="col-8 ">
+                            <p class="form-control">
+                                {{ round($employee->ped_experience / 12) }} р. {{ $employee->ped_experience % 12 }} міс.
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label for="languages" class="col-4 col-form-label">Знання іноземних мов</label>
+                        <div class="col-8">
+                            <textarea id="languages" name="languages" cols="40" rows="3" class="form-control"
+                                aria-describedby="languagesHelpBlock" readonly="readonly">{{ $employee->languages }}</textarea>
+                            <span id="languagesHelpBlock" class="form-text text-muted">Введіть через кому мови та рівень
+                                їх
+                                знання</span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="languages" class="col-4 col-form-label">Коментар відділу кадрів</label>
                         <div class="col-8">
                             <textarea id="languages" name="languages" cols="40" rows="3" class="form-control"
                                 aria-describedby="languagesHelpBlock" disabled="disabled">{{ $employee->message }}</textarea>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <div class="offset-4 col-8">
-                            <button name="submit" type="submit" class="btn btn-success">Зберегти</button>
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
+        </form>
+        <div class="row">
             <div class="col-6">
                 @include('employees.parts.phones')
+            </div>
+            <div class="col-6">
                 @include('employees.parts.addresses')
             </div>
         </div>
         <div class="row">
-            <div class="col-12">
-                @include('employees.parts.cards')
+            <div class="col">
+                @include('employees.parts.positioncards')
             </div>
         </div>
     </div>
