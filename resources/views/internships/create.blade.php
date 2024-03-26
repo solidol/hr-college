@@ -29,13 +29,13 @@
                     <div class="form-group row">
                         <label for="thesis" class="col-4 col-form-label">Тема підвищення</label>
                         <div class="col-8">
-                            <textarea id="thesis" name="thesis" cols="40" rows="3" class="form-control" require></textarea>
+                            <textarea id="thesis" name="thesis" cols="40" rows="3" class="form-control" required></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="date_start" class="col-4 col-form-label">Дата початку</label>
                         <div class="col-4">
-                            <input id="date_start" name="date_start" type="date" class="form-control" require>
+                            <input id="date_start" name="date_start" type="date" class="form-control" required>
                         </div>
                         <div class="col-1">
                             <input id="cb_one_day" name="cb_one_day" type="checkbox" class="form-check-input">
@@ -56,7 +56,7 @@
                         <label for="hours" class="col-4 col-form-label">Години</label>
                         <div class="col-4">
                             <input id="hours" name="hours" type="number" min="1" max="200" step="1"
-                                class="form-control" require>
+                                class="form-control" required>
                         </div>
                         <div class="col-4">
                         </div>
@@ -67,7 +67,7 @@
                     <div class="form-group row">
                         <label for="institution" class="col-4 col-form-label">Організація</label>
                         <div class="col-8">
-                            <textarea id="institution" name="institution" cols="40" rows="3" class="form-control" require></textarea>
+                            <textarea id="institution" name="institution" cols="40" rows="3" class="form-control" required></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -107,19 +107,19 @@
                     <div class="form-group row">
                         <label for="doc_number" class="col-4 col-form-label">Номер документу</label>
                         <div class="col-8">
-                            <input id="doc_number" name="doc_number" type="text" class="form-control" require>
+                            <input id="doc_number" name="doc_number" type="text" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="doc_title" class="col-4 col-form-label">Назва в документі</label>
                         <div class="col-8">
-                            <textarea id="doc_title" name="doc_title" cols="40" rows="3" class="form-control" require></textarea>
+                            <textarea id="doc_title" name="doc_title" cols="40" rows="3" class="form-control" required></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="doc_institution" class="col-4 col-form-label">Організація</label>
                         <div class="col-8">
-                            <textarea id="doc_institution" name="doc_institution" cols="40" rows="3" class="form-control" require></textarea>
+                            <textarea id="doc_institution" name="doc_institution" cols="40" rows="3" class="form-control" required></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -136,7 +136,7 @@
                     <div class="form-group row">
                         <label for="doc_date_start" class="col-4 col-form-label">Дата видачі</label>
                         <div class="col-4">
-                            <input id="doc_date_start" name="doc_date_start" type="date" class="form-control" require>
+                            <input id="doc_date_start" name="doc_date_start" type="date" class="form-control" required>
                         </div>
                         <div class="col-4">
 
@@ -153,7 +153,7 @@
                     <div class="form-group row">
                         <label for="file" class="col-4 col-form-label">Прикріплений файл</label>
                         <div class="col-8">
-                            <input id="file" name="file" type="file" class="form-control" require>
+                            <input id="file" name="file" type="file" class="form-control" required>
                         </div>
 
                     </div>
