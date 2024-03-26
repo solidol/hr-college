@@ -18,6 +18,10 @@ class Employee extends Model
     {
         return $this->hasMany(PositionCard::class);
     }
+    public function documents()
+    {
+        return $this->hasMany(Document::class);
+    }
     public function attestations()
     {
         return $this->hasMany(Attestation::class);

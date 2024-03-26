@@ -16,10 +16,13 @@ return new class extends Migration
             $table->timestamps();
             $table->unsignedBigInteger('created_by')->default(1);
             $table->unsignedBigInteger('updated_by')->default(1);
-            $table->string('title');
-            $table->string('filename',2000);
-            $table->text('description');
-            $table->unsignedInteger('crc32');
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
+            $table->nullableMorphs('attachable');
+            $table->string('dir',2000)->nullable();
+            $table->string('filename',2000)->nullable();
+            $table->string('ext',10)->nullable();
+            $table->unsignedInteger('crc32')->default(0);
         });
     }
 

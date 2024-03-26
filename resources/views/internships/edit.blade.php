@@ -1,14 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{ URL::route('internships.update', ['internship' => $internship]) }}" method="post">
-        @csrf
-        @method('PATCH')
-        <div class="container">
-            <h1>Редагувати картку підвищення кваліфікації</h1>
+    <div class="container">
+        <h1>Редагувати картку підвищення кваліфікації</h1>
+        <form action="{{ URL::route('internships.update', ['internship' => $internship]) }}" method="post"
+            enctype="multipart/form-data">
+            @csrf
+            @method('PATCH')
+
             <div class="row">
                 <div class="col">
-                    <a href="{{URL::route('positioncards.internships.show',['positioncard'=>$internship->positioncard])}}" class="btn btn-success">До всіх карток</a>
+                    <a href="{{ URL::route('positioncards.internships.show', ['positioncard' => $internship->positioncard]) }}"
+                        class="btn btn-success">До всіх карток</a>
                 </div>
             </div>
             <div class="row">
@@ -26,7 +29,8 @@
                         <div class="col-8">
                             <select id="internship_type" name="internship_type" class="form-select">
                                 @foreach ($internshipTypes as $type)
-                                    <option value="{{ $type->id }}" {{$type==$internship->type?'selected':''}}>{{ $type->title }}</option>
+                                    <option value="{{ $type->id }}" {{ $type == $internship->type ? 'selected' : '' }}>
+                                        {{ $type->title }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -41,13 +45,15 @@
                     <div class="form-group row">
                         <label for="date_start" class="col-4 col-form-label">Дата початку</label>
                         <div class="col-8">
-                            <input id="date_start" name="date_start" type="date" class="form-control"  value="{{ $internship->date_start->format('Y-m-d') }}">
+                            <input id="date_start" name="date_start" type="date" class="form-control"
+                                value="{{ $internship->date_start->format('Y-m-d') }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="date_end" class="col-4 col-form-label">Дата закінчення</label>
                         <div class="col-8">
-                            <input id="date_end" name="date_end" type="date" class="form-control"  value="{{ $internship->date_end->format('Y-m-d') }}">
+                            <input id="date_end" name="date_end" type="date" class="form-control"
+                                value="{{ $internship->date_end->format('Y-m-d') }}">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -95,7 +101,11 @@
                     </div>
                 </div>
             </div>
-
+        </form>
+        <div class="row">
+            <div class="col">
+                @include('internships.parts.documents')
+            </div>
         </div>
-    </form>
+    </div>
 @endsection

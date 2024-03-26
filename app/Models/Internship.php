@@ -23,6 +23,10 @@ class Internship extends Model
         return $this->belongsTo(PositionCard::class, 'position_card_id');
     }
 
+    public function documents()
+    {
+        return $this->morphMany(Document::class, 'documentable');
+    }
     public function employee()
     {
         //return $this->belongsTo(Employee::class);

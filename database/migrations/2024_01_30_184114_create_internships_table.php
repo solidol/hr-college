@@ -24,7 +24,6 @@ return new class extends Migration
             $table->decimal('hours',8,2,true);
             $table->text('description')->nullable();
             $table->unsignedBigInteger('position_card_id');
-            //$table->unsignedBigInteger('document_id')->default(0);
             $table->unsignedBigInteger('internship_type_id');
             $table->tinyInteger('active')->default(1)->comment('1 = active, 0 = archived');
             $table->tinyInteger('status')->default(1)->comment('0 = accepted, 1 = editable, 2 = on review, 3 = accepted');

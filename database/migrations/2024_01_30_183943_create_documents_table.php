@@ -22,9 +22,9 @@ return new class extends Migration
             $table->date('date_start')->nullable()->comment('Дата видачі документу');
             $table->date('date_end')->nullable()->comment('Термін дії документу');
             $table->string('institution')->comment('Організація, що видала документ');
-            $table->morphs('documentable');
-            $table->nullableMorphs('alt_documentable');
-            $table->bigInteger('document_type_id')->unsigned()->comment('Тип документу');
+            $table->nullableMorphs('documentable');
+            $table->unsignedBigInteger('employee_id')->nullable();
+            $table->unsignedBigInteger('document_type_id')->comment('Тип документу');
             $table->text('description')->nullable()->comment('Текст в документі');
             $table->tinyInteger('active')->default(1)->comment('1 = active, 0 = archived');
             $table->tinyInteger('status')->default(1)->comment('0 = accepted, 1 = editable, 2 = on review, 3 = accepted');

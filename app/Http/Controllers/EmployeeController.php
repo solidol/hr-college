@@ -19,6 +19,11 @@ class EmployeeController extends Controller
         return view('employees.show', ['employee' => $employee]);
     }
 
+    public function documents(Employee $employee)
+    {
+        return view('employees.documents', ['employee' => $employee]);
+    }
+
     public function edit(Employee $employee)
     {
         return view('employees.edit', ['employee' => $employee]);

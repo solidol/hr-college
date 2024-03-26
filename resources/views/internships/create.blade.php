@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{ URL::route('positioncards.internships.store', ['positioncard' => $positioncard]) }}" method="post">
+    <form action="{{ URL::route('positioncards.internships.store', ['positioncard' => $positioncard]) }}" method="post"
+        enctype="multipart/form-data">
         @csrf
         <div class="container">
             <h1>Створити картку підвищення кваліфікації</h1>
@@ -75,6 +76,9 @@
                         <label for="institution_sel" class="col-4 col-form-label">Швидка підказка</label>
                         <div class="col-8">
                             <select id="institution_sel" name="institution_sel" class="form-select">
+                                <option value="-1" data-title="" selected>
+                                    Оберіть зі списку
+                                </option>
                                 @foreach ($institutions as $institution)
                                     <option value="{{ $institution->id }}" data-title="{{ $institution->title }}">
                                         {{ $institution->short_title }}
@@ -97,18 +101,76 @@
                                 aria-describedby="languagesHelpBlock"></textarea>
                         </div>
                     </div>
+
+
+                </div>
+            </div>
+            <div class="row">
+                <h2>Документ підтвердження</h2>
+                <div class="col-6">
                     <div class="form-group row">
-                        <label for="languages" class="col-4 col-form-label">Коментар відділу кадрів</label>
+                        <label for="doc_number" class="col-4 col-form-label">Номер документу</label>
                         <div class="col-8">
-                            <textarea id="languages" name="languages" cols="40" rows="3" class="form-control"
+                            <input id="doc_number" name="doc_number" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="doc_title" class="col-4 col-form-label">Назва в документі</label>
+                        <div class="col-8">
+                            <textarea id="doc_title" name="doc_title" cols="40" rows="3" class="form-control"
                                 aria-describedby="languagesHelpBlock"></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="offset-4 col-8">
-                            <button name="submit" type="submit" class="btn btn-success">Зберегти</button>
+                        <label for="doc_institution" class="col-4 col-form-label">Організація</label>
+                        <div class="col-8">
+                            <textarea id="doc_institution" name="doc_institution" cols="40" rows="3" class="form-control"
+                                aria-describedby="languagesHelpBlock"></textarea>
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label for="doc_type" class="col-4 col-form-label">Тип документу</label>
+                        <div class="col-8">
+                            <select id="doc_type" name="doc_type" class="form-select">
+                                @foreach ($documentTypes as $type)
+                                    <option value="{{ $type->id }}">{{ $type->title }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="doc_date_start" class="col-4 col-form-label">Дата видачі</label>
+                        <div class="col-4">
+                            <input id="doc_date_start" name="doc_date_start" type="date" class="form-control">
+                        </div>
+                        <div class="col-4">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group row">
+                        <label for="doc_description" class="col-4 col-form-label">Текст в документі</label>
+                        <div class="col-8">
+                            <textarea id="doc_description" name="doc_description" cols="40" rows="3" class="form-control"
+                                aria-describedby="languagesHelpBlock"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="file" class="col-4 col-form-label">Прикріплений файл</label>
+                        <div class="col-8">
+                            <input id="file" name="file" type="file" class="form-control">
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="offset-4 col-8">
+                    <button name="submit" type="submit" class="btn btn-success">Зберегти</button>
                 </div>
             </div>
 
@@ -118,15 +180,23 @@
     <script type="module">
         $(document).ready(function() {
             $('#institution_sel').change(function() {
-                $('#institution').text($(this).find(":selected").data('title'));
+                $('#institution').val($(this).find(":selected").data('title'));
+                $('#doc_institution').val($(this).find(":selected").data('title'));
             });
             $('#cb_one_day').click(function() {
                 if ($(this).is(':checked')) {
                     $('#row_date_end').hide();
+                    $('#date_end').val($('#date_start').val());
+                    $('#doc_date_start').val($('#date_end').val());
                 } else {
                     $('#row_date_end').show();
                 }
             });
+            $('#thesis').on('change keyup paste',function(){
+                $('#doc_title').val($(this).val());
+                $('#doc_description').val($(this).val());
+            });
+
         });
     </script>
 @endsection
