@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'admin',
             'email' => 'admin@fakemail.com',
-            'password' => Hash::make('111111'),
+            'password' => Hash::make('!masteroftheuniverse'),
             'userable_id' => 1,
             'userable_type' => 'App\Models\Employee',
             'roles' => 'employee,admin',
