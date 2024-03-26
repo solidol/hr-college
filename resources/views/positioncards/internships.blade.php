@@ -80,7 +80,7 @@
                                     </div>
                                     <hr>
                                     <div>
-                                        {{ bcdiv($internship->hours / 30, 1, 2) }}
+                                        {{ round($internship->hours / 30, 2) }}
                                     </div>
 
                                 </td>
