@@ -29,14 +29,13 @@
                     <div class="form-group row">
                         <label for="thesis" class="col-4 col-form-label">Тема підвищення</label>
                         <div class="col-8">
-                            <textarea id="thesis" name="thesis" cols="40" rows="3" class="form-control"
-                                aria-describedby="languagesHelpBlock"></textarea>
+                            <textarea id="thesis" name="thesis" cols="40" rows="3" class="form-control" require></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="date_start" class="col-4 col-form-label">Дата початку</label>
                         <div class="col-4">
-                            <input id="date_start" name="date_start" type="date" class="form-control">
+                            <input id="date_start" name="date_start" type="date" class="form-control" require>
                         </div>
                         <div class="col-1">
                             <input id="cb_one_day" name="cb_one_day" type="checkbox" class="form-check-input">
@@ -57,7 +56,7 @@
                         <label for="hours" class="col-4 col-form-label">Години</label>
                         <div class="col-4">
                             <input id="hours" name="hours" type="number" min="1" max="200" step="1"
-                                class="form-control">
+                                class="form-control" require>
                         </div>
                         <div class="col-4">
                         </div>
@@ -68,8 +67,7 @@
                     <div class="form-group row">
                         <label for="institution" class="col-4 col-form-label">Організація</label>
                         <div class="col-8">
-                            <textarea id="institution" name="institution" cols="40" rows="3" class="form-control"
-                                aria-describedby="languagesHelpBlock"></textarea>
+                            <textarea id="institution" name="institution" cols="40" rows="3" class="form-control" require></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -90,15 +88,13 @@
                     <div class="form-group row">
                         <label for="department" class="col-4 col-form-label">Структурний підрозділ</label>
                         <div class="col-8">
-                            <textarea id="department" name="department" cols="40" rows="3" class="form-control"
-                                aria-describedby="languagesHelpBlock"></textarea>
+                            <textarea id="department" name="department" cols="40" rows="3" class="form-control"></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="description" class="col-4 col-form-label">Примітка</label>
                         <div class="col-8">
-                            <textarea id="description" name="description" cols="40" rows="3" class="form-control"
-                                aria-describedby="languagesHelpBlock"></textarea>
+                            <textarea id="description" name="description" cols="40" rows="3" class="form-control"></textarea>
                         </div>
                     </div>
 
@@ -111,21 +107,19 @@
                     <div class="form-group row">
                         <label for="doc_number" class="col-4 col-form-label">Номер документу</label>
                         <div class="col-8">
-                            <input id="doc_number" name="doc_number" type="text" class="form-control">
+                            <input id="doc_number" name="doc_number" type="text" class="form-control" require>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="doc_title" class="col-4 col-form-label">Назва в документі</label>
                         <div class="col-8">
-                            <textarea id="doc_title" name="doc_title" cols="40" rows="3" class="form-control"
-                                aria-describedby="languagesHelpBlock"></textarea>
+                            <textarea id="doc_title" name="doc_title" cols="40" rows="3" class="form-control" require></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="doc_institution" class="col-4 col-form-label">Організація</label>
                         <div class="col-8">
-                            <textarea id="doc_institution" name="doc_institution" cols="40" rows="3" class="form-control"
-                                aria-describedby="languagesHelpBlock"></textarea>
+                            <textarea id="doc_institution" name="doc_institution" cols="40" rows="3" class="form-control" require></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -142,7 +136,7 @@
                     <div class="form-group row">
                         <label for="doc_date_start" class="col-4 col-form-label">Дата видачі</label>
                         <div class="col-4">
-                            <input id="doc_date_start" name="doc_date_start" type="date" class="form-control">
+                            <input id="doc_date_start" name="doc_date_start" type="date" class="form-control" require>
                         </div>
                         <div class="col-4">
 
@@ -153,14 +147,13 @@
                     <div class="form-group row">
                         <label for="doc_description" class="col-4 col-form-label">Текст в документі</label>
                         <div class="col-8">
-                            <textarea id="doc_description" name="doc_description" cols="40" rows="3" class="form-control"
-                                aria-describedby="languagesHelpBlock"></textarea>
+                            <textarea id="doc_description" name="doc_description" cols="40" rows="3" class="form-control"></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="file" class="col-4 col-form-label">Прикріплений файл</label>
                         <div class="col-8">
-                            <input id="file" name="file" type="file" class="form-control">
+                            <input id="file" name="file" type="file" class="form-control" require>
                         </div>
 
                     </div>
@@ -192,7 +185,7 @@
                     $('#row_date_end').show();
                 }
             });
-            $('#thesis').on('change keyup paste',function(){
+            $('#thesis').on('change keyup paste', function() {
                 $('#doc_title').val($(this).val());
                 $('#doc_description').val($(this).val());
             });
