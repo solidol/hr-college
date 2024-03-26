@@ -153,7 +153,7 @@
                     <div class="form-group row">
                         <label for="file" class="col-4 col-form-label">Прикріплений файл</label>
                         <div class="col-8">
-                            <input id="file" name="file" type="file" class="form-control" required>
+                            <input id="file" name="file" type="file" class="form-control"  accept=".pdf" required >
                         </div>
 
                     </div>
