@@ -17,7 +17,7 @@ class StoredFile extends Model
 
         $this->save();
         $ext = $file->getClientOriginalExtension();
-        $filename = str_pad($this->id, 10, '0', STR_PAD_LEFT). '_' . date('Y-m-d_h-s-i') . '.' . $file->extension();
+        $filename = str_pad($this->id, 10, '0', STR_PAD_LEFT). '_' . date('Y-m-d_h-s-i') . '.' . $ext;
         $dir = "fs/{$employee->reg_number}";
         $this->dir = $dir;
         $this->filename = $filename;
