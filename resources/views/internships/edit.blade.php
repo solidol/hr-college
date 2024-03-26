@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Редагувати картку підвищення кваліфікації</h1>
+        <h1>Картка підвищення кваліфікації <span class="badge bg-danger">РЕДАГУВАННЯ</span></h1>
         <form action="{{ URL::route('internships.update', ['internship' => $internship]) }}" method="post"
             enctype="multipart/form-data">
             @csrf
