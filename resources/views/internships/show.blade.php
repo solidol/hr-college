@@ -87,10 +87,9 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12">
-            <h2>Приєднані документи</h2>
+            <div class="col">
+                @include('internships.parts.documents')
             </div>
-
         </div>
     </div>
 @endsection
